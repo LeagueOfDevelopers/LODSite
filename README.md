@@ -1,5 +1,7 @@
-Что-то пошло не так.
+/*
+ *
+ *	Site League of Developers
+ *
+ */
 
-Этот файл успешно синхронизируется, но папка с дизайном не может...
-
-"Failed to add file lod-site-design/ to index."
+- Design
