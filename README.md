@@ -1,7 +1,3 @@
-/*
- *
- *	Site League of Developers
- *
- */
+Site League of Developers
 
 - Design
