@@ -54,6 +54,12 @@ nav:hover { opacity: 1.0; }
 
 .dropdown-menu-login { min-width: 230px; }
 
+/* .form-group { margin: 0 0 20px 0; } */
+
+.input-group small { }
+
+.help-block { color: #F62459; }
+
 .btn-default {
 	background-image: none;
 	background-color: #FCFCFC;
