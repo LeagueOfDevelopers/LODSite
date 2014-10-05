@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Авторизация / Регистрация</title>
+<title>Стол заказов</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/bootstrapValidator.min.css">
@@ -108,86 +108,31 @@
 
 	<ol class="breadcrumb">
 		<li><a href="#">Главная</a></li>
-		<li class="active">Авторизация / Регистрация</li>
+		<li class="active">Стол заказов</li>
 	</ol>
 
 	<div class="row row-offcanvas row-offcanvas-right">
 		<div class="col-xs-6">
 
 			<div class="page-header">
-				<h1>Авторизация <small></small></h1>
+				<h1>Стол заказов <small></small></h1>
 			</div>
 
-			<form class="form-horizontal" id="loginForm" method="post" action="">
+			<form class="form-horizontal" id="orderForm" method="post" action="">
 
 				<div class="form-group">
-					<label class="col-lg-3 control-label">Логин</label>
-					<div class="col-lg-5">
+					<label class="col-lg-3 control-label">ФИО</label>
+					<div class="col-md-6">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" class="form-control" name="login" />
-						</div>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-lg-3 control-label">Пароль</label>
-					<div class="col-lg-5">
-						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="password" class="form-control" name="password" />
-						</div>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-lg-3 control-label"></label>
-					<div class="col-lg-5">
-						<button type="submit" class="btn btn-primary">Войти</button>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-lg-3 control-label"></label>
-					<div class="col-lg-5">
-						<a href="#">Забыли пароль?</a>
-					</div>
-				</div>
-			</form>
-
-		</div>
-
-		<div class="col-xs-6">
-
-			<div class="page-header">
-				<h1>Регистрация <small></small></h1>
-			</div>
-
-			<form class="form-horizontal" id="registerForm" method="post" action="">
-
-				<div class="form-group">
-					<label class="col-lg-3 control-label">Логин</label>
-					<div class="col-lg-5">
-						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" class="form-control" name="login" />
-						</div>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-lg-3 control-label">Имя</label>
-					<div class="col-lg-5">
-						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
-							<input type="text" class="form-control" name="username" />
+							<input type="text" class="form-control" name="name" />
 						</div>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-lg-3 control-label">E-mail</label>
-					<div class="col-lg-5">
+					<div class="col-md-6">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
 							<input type="text" class="form-control" name="email" />
@@ -196,39 +141,59 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-lg-3 control-label">Пароль</label>
-					<div class="col-lg-5">
+					<label class="col-lg-3 control-label">Телефон</label>
+					<div class="col-md-6">
 						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="password" class="form-control" name="password" />
+							<span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+							<input type="text" class="form-control" name="telephone" placeholder="" />
 						</div>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-lg-3 control-label">Пароль еще раз</label>
-					<div class="col-lg-5">
+					<label class="col-lg-3 control-label">Тип заказа</label>
+					<div class="col-md-6">
+						<select class="form-control" name="type">
+							<option value="">-- Выберите --</option>
+							<option value="action">Макет</option>
+							<option value="comedy">Верстка</option>
+							<option value="horror">Разработка ПО</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">Дедлайн</label>
+					<div class="col-md-6">
 						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="password" class="form-control" name="passwordagain" />
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+							<input type="text" class="form-control" name="deadline" placeholder="Например, 05.10.14" />
 						</div>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-lg-3 control-label"></label>
-					<div class="col-lg-5">
-						<a href="#">Правила пользования сайтом</a>
+					<label class="col-lg-3 control-label">Подробное описание заказа</label>
+					<div class="col-md-8">
+						<textarea class="form-control" name="description" rows="8"></textarea>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-lg-3 control-label"></label>
-					<div class="col-lg-5">
-						<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+					<div class="col-md-6">
+						<button type="submit" class="btn btn-primary">Отправить заказ</button>
 					</div>
 				</div>
 			</form>
+
+		</div>
+
+		<div class="col-xs-6">
+
+			<p class="lead">Тут могут быть какие-нибудь правила для заполняющего форму пользователя.</p>
+			<p class="lead">Ну, например, тут может говориться о том, что мы не работаем со школотой, которой нужно написать ПО для дудосика кс сервера за аккаунт в Steam.</p>
+			<p class="lead">Ну или, например, что работаем за еду.</p>
 
 		</div>
 	</div>
@@ -254,7 +219,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#registerForm').bootstrapValidator({
+	$('#orderForm').bootstrapValidator({
 		message: 'This value is not valid',
 		feedbackIcons: {
 			valid: 'glyphicon glyphicon-ok',
@@ -262,37 +227,19 @@ $(document).ready(function() {
 			validating: 'glyphicon glyphicon-refresh'
 		},
 		fields: {
-			login: {
-				message: 'Неправильно введен логин',
+			name: {
+				message: 'Неправильно введено ФИО',
 				validators: {
 					notEmpty: {
 						message: 'Поле является обязательным и не может быть пустым'
 					},
 					stringLength: {
-						min: 3,
-						max: 16,
-						message: 'Имя должен быть больше 3-х и меньше 16-ти символов'
-					},
-					regexp: {
-						regexp: /^[a-zA-Z0-9_]+$/,
-						message: 'Логин может состоять только из английского алфавита, цифр и знака подчеркивания'
-					}
-				}
-			},
-			username: {
-				message: 'Неправильно введено имя',
-				validators: {
-					notEmpty: {
-						message: 'Поле является обязательным и не может быть пустым'
-					},
-					stringLength: {
-						min: 6,
-						max: 30,
-						message: 'Имя должно быть больше 3-х и меньше 30-ти символов'
+						min: 10,
+						message: 'ФИО должно быть больше 10-ти символов'
 					},
 					regexp: {
 						regexp: /^[а-яА-Я ]+$/,
-						message: 'Имя может состоять только из русского алфавита'
+						message: 'ФИО может состоять только из русского алфавита'
 					}
 				}
 			},
@@ -306,63 +253,48 @@ $(document).ready(function() {
 					}
 				}
 			},
-			password: {
+			telephone: {
 				validators: {
 					notEmpty: {
-						message: 'Введите пароль'
+						message: 'Поле является обязательным и не может быть пустым'
 					},
-					stringLength: {
-						min: 6,
-						message: 'Не меньше 6-ти символов'
+					phone: {
+						country: 'RU',
+						message: 'Неправильно указали номер телефона'
 					}
 				}
 			},
-			passwordagain: {
+			type: {
 				validators: {
 					notEmpty: {
-						message: 'Введите повторно пароль'
-					},
-					stringLength: {
-						min: 6,
-						message: 'Не меньше 6-ти символов'
+						message: 'Выберите тип заказа'
 					}
 				}
-			}
-		}
-	});
-	$('#loginForm').bootstrapValidator({
-		message: 'This value is not valid',
-		feedbackIcons: {
-			valid: 'glyphicon glyphicon-ok',
-			invalid: 'glyphicon glyphicon-remove',
-			validating: 'glyphicon glyphicon-refresh'
-		},
-		fields: {
-			login: {
-				message: 'Неправильно введен логин',
+			},
+			deadline: {
+				message: 'Неправильно указан дедлайн',
 				validators: {
 					notEmpty: {
 						message: 'Поле является обязательным и не может быть пустым'
 					},
 					stringLength: {
-						min: 3,
-						max: 16,
-						message: 'Имя должен быть больше 3-х и меньше 16-ти символов'
+						min: 8,
+						message: 'Дата не может быть меньше 8-ми символов. Например, 05.10.14'
 					},
 					regexp: {
-						regexp: /^[a-zA-Z0-9_]+$/,
-						message: 'Логин может состоять только из английского алфавита, цифр и знака подчеркивания'
+						regexp: /^[а-яА-Я0-9,\/. ]+$/,
+						message: 'Дата может состоять из цифр, русского алфавита, точек и слешей'
 					}
 				}
 			},
-			password: {
+			description: {
 				validators: {
 					notEmpty: {
-						message: 'Введите пароль'
+						message: 'Вы не описали подробно свой заказ'
 					},
 					stringLength: {
-						min: 6,
-						message: 'Не меньше 6-ти символов'
+						min: 200,
+						message: 'Минимум 200 символов. Нам нужно знать больше.'
 					}
 				}
 			}
