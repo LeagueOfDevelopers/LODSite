@@ -1,3 +1,4 @@
 Site League of Developers
 
-- Design
+- Control Panel Design
+- Site Design
