@@ -23,7 +23,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="right" title="Лига Разработчиков"><img src="images/logo_lod.jpeg" alt="LoD"></a>
+			<a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="right" title="Лига Разработчиков"><img src="images/lodlogo.png" alt="LoD"></a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -194,6 +194,27 @@
 				</div>
 			</div>
 
+			<div class="panel panel-default">
+				<div class="panel-heading">Добавить комментарий</div>
+				<div class="panel-body">
+					<form class="form-horizontal" id="commentForm" method="post" action="">
+						<div class="form-group">
+							<label class="col-lg-3 control-label">Текст комментария</label>
+							<div class="col-md-8">
+								<textarea class="form-control" name="comment" rows="8"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-3 control-label"></label>
+							<div class="col-lg-5">
+								<button type="submit" class="btn btn-primary">Добавить</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="col-xs-6 col-md-3">
 					<a href="#" class="thumbnail">
@@ -251,8 +272,35 @@
 		</div>
 	</div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrapValidator.min.js"></script>
 <script src="js/library.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#commentForm').bootstrapValidator({
+		message: 'This value is not valid',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			comment: {
+				validators: {
+					notEmpty: {
+						message: 'Вы не написали комментарий'
+					},
+					stringLength: {
+						min: 10,
+						message: 'Минимум 10 символов'
+					}
+				}
+			}
+		}
+	});
+});
+</script>
 </body>
 </html>
