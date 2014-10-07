@@ -14,27 +14,56 @@ return array(
             'css' => array(),
             'module_views' => array(
                 'content' => array(
-                    'authorized_mode' => true,
+                    'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
-                            'range' => array(1, 2),
-                            'value' => 'index/main'
-                        ),
-                        array(
-                            'range' => array(3, 5),
-                            'value' => 'index/main_dev'
-                        ),
-                        array(
-                            'range' => array(6, 8),
-                            'value' => 'index/main_manager'
-                        ),
-                        array(
-                            'range' => array(9, 10),
-                            'value' => 'index/main_admin'
-                        ),
+                            'range' => 'default',
+                            'value' => 'index/main/main'
+                        )
+                    )
+                ),
+                'right_block' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
                         array(
                             'range' => 'default',
-                            'value' => 'index/main'
+                            'value' => 'index/right_block/right_block'
+                        )
+                    )
+                ),
+                'news' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/news/news'
+                        )
+                    )
+                ),
+                'pagination' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/pagination/pagination'
+                        )
+                    )
+                ),
+                'previews' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/previews/previews'
+                        )
+                    )
+                ),
+                'navigation' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/navigation/navigation'
                         )
                     )
                 )

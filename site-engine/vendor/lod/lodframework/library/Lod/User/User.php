@@ -32,8 +32,10 @@ class User implements UserInterface {
     }
 
     public function allocateUserById($id) {
-        $result = $this->db->query("SELECT * FROM `users` WHERE `id` = ?i", $id);
-        $this->setTableRow($result->num_rows ? $result->fetch_array(MYSQL_ASSOC) : null);
+        if (is_numeric($id)) {
+            $result = $this->db->query("SELECT * FROM `users` WHERE `id` = ?i", $id);
+            $this->setTableRow($result->num_rows ? $result->fetch_array(MYSQL_ASSOC) : null);
+        }
     }
 
     public function allocateUserByEmail($email) {
