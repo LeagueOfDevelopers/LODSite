@@ -14,7 +14,7 @@ $user = $data['user'];
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" data-toggle="tooltip" data-placement="right" title="Лига Разработчиков"><img src="/st/img/lodlogo.png" alt="LoD"></a>
+            <a class="navbar-brand" href="/" data-toggle="tooltip" data-placement="right" title="Лига Разработчиков"><img src="/st/img/lodlogo.png" alt="League Of Developers"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -32,7 +32,7 @@ $user = $data['user'];
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">proFox <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=$user->getNickName()?> <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/profile">Профиль</a></li>
                         <li><a href="#">Сообщения <span class="badge">0 новых</span></a></li>
@@ -41,7 +41,7 @@ $user = $data['user'];
                         <li class="divider"></li>
                         <li><a href="/settings">Настройки</a></li>
                         <li class="divider"></li>
-                        <li><a href="/logout?hash=6da32eed5368dff2">Выход</a></li>
+                        <li><a href="/user/logout">Выход</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

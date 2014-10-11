@@ -30,6 +30,14 @@ return array(
             'language.en' => array(
                 'version' => '1',
                 'file' => '/st/js/language/en_US.js'
+            ),
+            'user' => array(
+                'version' => '1',
+                'file' => '/st/js/user.js'
+            ),
+            'register' => array(
+                'version' => '1',
+                'file' => '/st/js/register/register.js'
             )
         ),
         'css' => array(

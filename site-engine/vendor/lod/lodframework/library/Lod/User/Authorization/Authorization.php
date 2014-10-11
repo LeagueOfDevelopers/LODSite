@@ -57,7 +57,7 @@ class Authorization implements AuthorizationInterface {
     }
 
     private function setLoginKey($user_id, $access_key) {
-        $this->db->query("UPDATE `users` SET `login_key` = ?s WHERE `id` = ?i", $access_key, $user_id);
+        $this->db->query("UPDATE `users` SET `login_key` = ?s, `last_logged_time` = ?i WHERE `id` = ?i", $access_key, time(), $user_id);
         $this->db->query("COMMIT");
     }
 

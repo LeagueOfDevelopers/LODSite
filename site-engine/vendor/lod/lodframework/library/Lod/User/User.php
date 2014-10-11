@@ -193,6 +193,14 @@ class User implements UserInterface {
         return !empty($this->table_row['view_count']) ? $this->table_row['view_count'] : null;
     }
 
+    public function getPublicLoginKey() {
+        return !empty($this->table_row['login_key']) ? $this->table_row['login_key'] : null;
+    }
+
+    public function getSex() {
+        return !empty($this->table_row['sex']) ? $this->table_row['sex'] : 'b';
+    }
+
     public function isBan() {
         return $this->table_row['ban'] != 0;
     }

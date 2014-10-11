@@ -25,27 +25,31 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Войти <span class="caret"></span></a>
-                    <ul class="dropdown-menu dropdown-menu-login" role="menu"><form class="navbar-form" role="login">
+                    <ul class="dropdown-menu dropdown-menu-login" role="menu">
+                        <form class="navbar-form" role="login" onsubmit="User.signInStart(); return !1;">
                             <li role="presentation" class="dropdown-header">Логин</li>
                             <li>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <input type="text" class="form-control" placeholder="Логин">
+                                    <input type="text" id="head_form_login" class="form-control" placeholder="Логин">
                                 </div>
                             </li>
                             <li role="presentation" class="dropdown-header">Пароль</li>
                             <li>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                    <input type="password" class="form-control" placeholder="Пароль">
+                                    <input type="password" id="head_form_password" class="form-control" placeholder="Пароль">
+                                </div>
+                                <div class="head-form-error" style="display: none;">
+                                    <small class="help-block">Неправильная пара логин/пароль</small>
                                 </div>
                             </li>
                             <li class="divider"></li>
-                            <li><button type="submit" class="btn btn-default">Войти</button> <a href="#">Забыли пароль?</a></li>
+                            <li><button type="submit" onclick="User.signInStart(); return !1;" class="btn btn-default">Войти</button> <a style="margin-left: 8px;" href="#">Забыли пароль?</a></li>
                             <li></li>
                         </form></ul>
                 </li>
-                <li><a href="/signup">Регистрация</a></li>
+                <li><a href="/user/register">Регистрация</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Поиск</a>
                     <ul class="dropdown-menu" role="menu">

@@ -122,3 +122,13 @@ nav:hover { opacity: 1.0; }
 	.row-offcanvas-left.active { left: 50%; }
 	.sidebar-offcanvas { position: absolute; top: 0; width: 50%; }
 }
+
+.head-form-error {
+    padding: 5px 13px 1px;
+    margin-top: 9px;
+    background-color: #FFE2E2;
+    border: 1px solid #FFBABA;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}

@@ -3,7 +3,8 @@
 return array(
     'modules' => array(
         '404' => 'Err404',
-        'index' => 'Index'
+        'index' => 'Index',
+        'user' => 'User'
     ),
     'module_options' => array(
         'module_path' => '/module'
@@ -28,7 +29,8 @@ return array(
             'script' => array(
                 'jquery',
                 'bootstrap.min',
-                'library'
+                'library',
+                'user'
             ),
             'css' => array(
                 'bootstrap.min',
