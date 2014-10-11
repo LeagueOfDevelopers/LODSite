@@ -52,7 +52,7 @@ class User implements UserInterface {
         return $this->table_row;
     }
 
-    public function setCheckAuthorization(CheckAuthorization $class) {
+    public function setCheckAuthorization(CheckAuthorization& $class) {
         $this->check_auth = $class;
     }
 

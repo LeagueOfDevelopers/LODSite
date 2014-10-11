@@ -1,3 +1,3 @@
 <ol class="breadcrumb">
-    <li class="active"><a href="#">Главная</a></li>
+    <li><a href="/">Главная</a></li>
 </ol>

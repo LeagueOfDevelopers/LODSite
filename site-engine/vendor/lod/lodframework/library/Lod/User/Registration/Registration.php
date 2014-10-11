@@ -13,5 +13,6 @@ class Registration implements RegistrationInterface {
     }
 
     public function signUp() {}
+
     public function getResult() {}
 }
