@@ -9,11 +9,12 @@ use Lod\User\User;
 class IndexModel extends AbstractModel {
 
     public function main() {
-        $check_auth = new CheckAuthorization($this->getLodDb(), array());
+        $check_auth = new CheckAuthorization($this->getLodDb());
         $check_auth->check();
 
         $user = new User($this->getLodDb(), $check_auth->getUserRow());
         $user->setCheckAuthorization($check_auth);
+
         $this->setData(array(
             'user' => $user
         ));

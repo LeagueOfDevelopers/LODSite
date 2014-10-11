@@ -80,4 +80,8 @@ class Application {
         }
         echo '</pre><hr>';
     }
+
+    public static function toRoute($route) {
+        header("Location: $route");
+    }
 }

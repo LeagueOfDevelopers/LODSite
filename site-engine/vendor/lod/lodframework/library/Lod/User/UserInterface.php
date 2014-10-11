@@ -39,6 +39,8 @@ interface UserInterface {
     function getLastLoggedDate();
     function getLastLoggedLater();
     function getViewCount();
+    function getPublicLoginKey();
+    function getSex();
 
     function isBan();
     function unBan();

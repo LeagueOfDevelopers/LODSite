@@ -12,7 +12,9 @@ class Registration implements RegistrationInterface {
         $this->data = $data;
     }
 
-    public function signUp() {}
+    public function signUp() {
+
+    }
 
     public function getResult() {}
 }
