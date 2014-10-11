@@ -11,7 +11,7 @@ interface UserInterface {
     function allocateUserByEmail($email);
     function allocateUserByNickName($nickname);
     function getObject();
-    function setCheckAuthorization(CheckAuthorization $class);
+    function setCheckAuthorization(CheckAuthorization& $class);
     function isAuth();
 
     function getId();

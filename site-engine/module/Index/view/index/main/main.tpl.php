@@ -14,7 +14,6 @@ $user = $this->getData()['user'];
             <p class="pull-right visible-xs">
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Показать колонку</button>
             </p>
-
             <?php
             $this->includeModuleView('navigation');
             ?>
@@ -32,7 +31,6 @@ $user = $this->getData()['user'];
             ?>
 
         </div>
-
         <?php
         $this->includeModuleView('right_block');
         ?>

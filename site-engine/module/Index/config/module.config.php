@@ -22,17 +22,26 @@ return array(
                         )
                     )
                 ),
-                'right_block' => array(
-                    'authorized_mode' => false,
+                'navigation' => array(
+                    'authorized_mode' => true,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
-                            'value' => 'index/right_block/right_block'
+                            'value' => 'index/navigation/navigation'
+                        )
+                    )
+                ),
+                'previews' => array(
+                    'authorized_mode' => true,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/previews/previews'
                         )
                     )
                 ),
                 'news' => array(
-                    'authorized_mode' => false,
+                    'authorized_mode' => true,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
@@ -41,7 +50,7 @@ return array(
                     )
                 ),
                 'pagination' => array(
-                    'authorized_mode' => false,
+                    'authorized_mode' => true,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
@@ -49,21 +58,12 @@ return array(
                         )
                     )
                 ),
-                'previews' => array(
-                    'authorized_mode' => false,
+                'right_block' => array(
+                    'authorized_mode' => true,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
-                            'value' => 'index/previews/previews'
-                        )
-                    )
-                ),
-                'navigation' => array(
-                    'authorized_mode' => false,
-                    'allocated_paths' => array(
-                        array(
-                            'range' => 'default',
-                            'value' => 'index/navigation/navigation'
+                            'value' => 'index/right_block/right_block'
                         )
                     )
                 )

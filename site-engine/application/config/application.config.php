@@ -43,6 +43,10 @@ return array(
                     'authorized_mode' => true,
                     'allocated_paths' => array(
                         array(
+                            'range' => array(1, 10),
+                            'value' => 'common/head/head.auth'
+                        ),
+                        array(
                             'range' => 'default',
                             'value' => 'common/head/head'
                         )
