@@ -24,12 +24,10 @@ class CheckAuthorization implements CheckAuthorizationInterface {
         if (!$key) {
             $cookies = Application::$request_variables['cookie'];
             $cookie_key = !empty($cookies['key']) ? $cookies['key'] : !1;
-            if (!$cookie_key) {
-                $this->removeCookie('key');
-            } else {
-                $arr = explode('|', $cookie_key);
-                $user_id = base64_decode($arr[0]);
-                $access_key = base64_decode($arr[1]);
+            if ($cookie_key) {
+                $key_manager = new KeyManager();
+                list($user_id, $access_key) = $key_manager->getPair($cookie_key);
+
                 if (!is_numeric($user_id)) {
                     $this->removeCookie('key');
                     return;
@@ -44,8 +42,9 @@ class CheckAuthorization implements CheckAuthorizationInterface {
                 $this->result = true;
             }
         } else {
-            $arr = explode('|', $key);
-            $user_id = base64_decode($arr[0]);
+            $key_manager = new KeyManager();
+            $user_id = $key_manager->getPair($key)[0];
+
             $this->user_row = $this->getUserById($user_id);
             $this->result = true;
         }

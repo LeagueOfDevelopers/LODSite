@@ -51,7 +51,7 @@
                 </li>
                 <li><a href="/user/register">Регистрация</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Поиск</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search" style="margin-right: 3px;"></span> Поиск</a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <form class="navbar-form" role="search">

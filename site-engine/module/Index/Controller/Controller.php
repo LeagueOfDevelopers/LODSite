@@ -3,6 +3,7 @@
 namespace Index\Controller;
 
 use Index\Model\IndexModel;
+use Lod\Core\Application;
 use Lod\Core\Controller\AbstractController;
 use Lod\Core\View\View;
 

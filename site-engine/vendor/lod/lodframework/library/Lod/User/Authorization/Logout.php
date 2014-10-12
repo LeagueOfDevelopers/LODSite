@@ -14,9 +14,8 @@ class Logout {
     }
 
     public function logout() {
-        $key = $_SESSION['loginkey'];
-        $arr = explode('|', $key);
-        $user_id = base64_decode($arr[0]);
+        $key_manager = new KeyManager();
+        list($user_id, $access_key) = $key_manager->getPair($_SESSION['loginkey']);
 
         $this->removeLoginKey($user_id);
         $this->removeSession('loginkey');
