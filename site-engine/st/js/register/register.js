@@ -21,6 +21,10 @@ $(document).ready(function() {
                     regexp: {
                         regexp: /^[a-z][0-9a-z_]{3,50}$/i,
                         message: 'Логин должен должен состоять из латинских букв, цифр и нижнего подчеркивания. Первый символ всегда латинский.'
+                    },
+                    remote: {
+                        message: 'Логин уже существует или указан некорректно',
+                        url: '/user/checklogin'
                     }
                 }
             },
@@ -36,7 +40,7 @@ $(document).ready(function() {
                         message: 'Имя должно быть больше 3-х и меньше 30-ти символов'
                     },
                     regexp: {
-                        regexp: /^[а-яА-Я]+$/,
+                        regexp: /^[а-я]+$/i,
                         message: 'Имя может состоять только из русского алфавита'
                     }
                 }
@@ -53,7 +57,7 @@ $(document).ready(function() {
                         message: 'Фамилия должна быть больше 2-х и меньше 30-ти символов'
                     },
                     regexp: {
-                        regexp: /^[а-яА-Я]+$/,
+                        regexp: /^[а-я]+$/i,
                         message: 'Фамилия может состоять только из русского алфавита'
                     }
                 }
@@ -64,7 +68,7 @@ $(document).ready(function() {
                         message: 'Поле является обязательным и не может быть пустым'
                     },
                     regexp: {
-                        regexp: /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/i,
+                        regexp: /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)+(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/i,
                         message: 'Указан некорректный e-mail адрес'
                     }
                 }
@@ -77,6 +81,10 @@ $(document).ready(function() {
                     stringLength: {
                         min: 6,
                         message: 'Не меньше 6-ти символов'
+                    },
+                    different: {
+                        field: 'login',
+                        message: 'Пароль не должен быть таким же как Логин'
                     }
                 }
             },
@@ -88,6 +96,13 @@ $(document).ready(function() {
                     stringLength: {
                         min: 6,
                         message: 'Не меньше 6-ти символов'
+                    },
+                    callback: {
+                        message: 'Повторный пароль не совпадает с введенным паролем',
+                        callback: function(value, validator) {
+                            var item = gebi('register_password');
+                            return value == item.value;
+                        }
                     }
                 }
             }

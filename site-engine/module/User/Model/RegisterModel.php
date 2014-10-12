@@ -14,15 +14,18 @@ class RegisterModel extends AbstractModel {
         $check_auth->check();
 
         if ($check_auth->getResult()) {
-            Application::toRoute('/');
-            Application::stop();
+            //Application::toRoute('/');
+            //Application::stop();
         }
 
         $user = new User($this->getLodDb(), $check_auth->getUserRow());
         $user->setCheckAuthorization($check_auth);
 
+        $type = isset(Application::$request_variables['get']['success']) ? 1 : 0;
+        $type = isset(Application::$request_variables['get']['confirmed']) ? 2 : $type;
         $this->setData(array(
-            'user' => $user
+            'user' => $user,
+            'register.type' => $type
         ));
 
         return $this;

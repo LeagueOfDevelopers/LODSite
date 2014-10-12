@@ -13,7 +13,18 @@ $user = $this->getData()['user'];
     ?>
 
     <?php
-    $this->includeModuleView('register_form');
+    $type = $this->getData()['register.type'];
+    switch ($type) {
+        case 1:
+            $this->includeModuleView('register.success');
+            break;
+        case 2:
+            $this->includeModuleView('register.confirmed');
+            break;
+        default:
+            $this->includeModuleView('register_form');
+            break;
+    }
     ?>
 
     <?php

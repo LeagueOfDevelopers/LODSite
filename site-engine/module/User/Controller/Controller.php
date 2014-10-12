@@ -6,8 +6,11 @@ use Lod\Core\Application;
 use Lod\Core\View\View;
 use User\Model\AuthModel;
 use Lod\Core\Controller\AbstractController;
+use User\Model\CheckLoginModel;
+use User\Model\ConfirmAccountModel;
 use User\Model\LogoutModel;
 use User\Model\RegisterModel;
+use User\Model\SignUpModel;
 
 class Controller extends AbstractController {
 
@@ -40,5 +43,30 @@ class Controller extends AbstractController {
         $view->setContent('register');
         $view->setData($data);
         $view->generate();
+    }
+
+    public function signUpAction() {
+        $model = new SignUpModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function checkLoginAction() {
+        $model = new CheckLoginModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function confirmAccountAction() {
+        $model = new ConfirmAccountModel();
+        $data = $model->main()->getData();
+        if ($data['result']) {
+            Application::toRoute("/user/register?confirmed");
+        } else {
+            Application::toRoute("/");
+        }
+        Application::stop();
     }
 }

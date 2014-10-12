@@ -124,7 +124,7 @@ nav:hover { opacity: 1.0; }
 }
 
 .head-form-error {
-    padding: 5px 13px 1px;
+    padding: 5px 13px 0;
     margin-top: 9px;
     background-color: #FFE2E2;
     border: 1px solid #FFBABA;

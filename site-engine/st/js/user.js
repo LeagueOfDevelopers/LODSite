@@ -3,7 +3,7 @@ var User = {};
 (function(obj) {
     obj.signInStart = function() {
         var login = gebi('head_form_login').value,
-            password = gebi('head_form_password').value
+            password = gebi('head_form_password').value;
         User.signIn(login, password);
     };
 
@@ -59,12 +59,6 @@ var User = {};
     obj.signUpResponseHandler = function(res) {
         if (res.result) {
             window.refresh('http://' + window.location.host + "/user/register?success");
-        } else {
-            gebi('confirm_password').value = '';
         }
     };
 })(User);
-
-setTimeout(function() {
-    User.signUpStart();
-}, 1000);

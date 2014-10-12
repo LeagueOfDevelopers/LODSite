@@ -12,12 +12,6 @@ use Lod\User\User;
 class IndexModel extends AbstractModel {
 
     public function main() {
-        //$logout = new Logout($this->getLodDb());
-        //$logout->logout();
-
-        //$auth = new Authorization($this->getLodDb(), Application::$request_variables['get']);
-        //$auth->signIn();
-
         $check_auth = new CheckAuthorization($this->getLodDb());
         $check_auth->check();
 
