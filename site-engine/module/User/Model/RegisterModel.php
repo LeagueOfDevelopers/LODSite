@@ -13,11 +13,6 @@ class RegisterModel extends AbstractModel {
         $check_auth = new CheckAuthorization($this->getLodDb());
         $check_auth->check();
 
-        if ($check_auth->getResult()) {
-            //Application::toRoute('/');
-            //Application::stop();
-        }
-
         $user = new User($this->getLodDb(), $check_auth->getUserRow());
         $user->setCheckAuthorization($check_auth);
 

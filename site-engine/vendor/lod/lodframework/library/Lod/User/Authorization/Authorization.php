@@ -2,7 +2,6 @@
 
 namespace Lod\User\Authorization;
 
-use Lod\Core\Application;
 use Lod\User\Validator\FieldsValidator;
 
 class Authorization implements AuthorizationInterface {
@@ -47,11 +46,13 @@ class Authorization implements AuthorizationInterface {
                 $access_key = $this->generateKey();
                 $this->setLoginKey($row['id'], $access_key);
 
-                $key = base64_encode($row['id']).'|'.base64_encode($access_key);
+                $key_manager = new KeyManager();
+                $key = $key_manager->createKey($row['id'], $access_key);
+
                 $this->setSession('loginkey', $key);
 
                 if ($this->infinity) {
-                    $this->setCookie('key', $key, time() + 14 * 24 * 60 * 60); /* 14 days */
+                    $this->setCookie('key', $key, time() + 14 * 24 * 60 * 60, '/'); /* 14 days */
                 }
                 $this->result = true;
             }
@@ -59,7 +60,7 @@ class Authorization implements AuthorizationInterface {
     }
 
     private function generateKey() {
-        return md5(mktime().rand(1, 10e9));
+        return md5(mktime().rand(1, 10e8));
     }
 
     private function setLoginKey($user_id, $access_key) {
@@ -71,8 +72,8 @@ class Authorization implements AuthorizationInterface {
         $_SESSION[$key] = $value;
     }
 
-    private function setCookie($name, $value, $remaining_time) {
-        setcookie($name, $value, $remaining_time);
+    private function setCookie($name, $value, $remaining_time, $path) {
+        setcookie($name, $value, $remaining_time, $path);
     }
 
     /**
