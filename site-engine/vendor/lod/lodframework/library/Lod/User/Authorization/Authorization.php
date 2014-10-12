@@ -17,7 +17,7 @@ class Authorization implements AuthorizationInterface {
      * @param $db \Lod\Db\LodDatabase
      * @param $data
      */
-    function __construct(&$db, $data) {
+    function __construct(&$db, $data = array()) {
         $this->db = $db;
         $this->data = $data;
     }
@@ -28,13 +28,19 @@ class Authorization implements AuthorizationInterface {
         $validator = new FieldsValidator();
 
         if ($validator->isNickNameValid($nickname) && $validator->isPasswordValid($password)) {
+            $password = md5(md5($this->data['password'].';'));
             $this->auth($nickname, $password);
         }
     }
 
+    public function signInById($id) {
+        $user_row = $this->db->query("SELECT * FROM `users` WHERE `confirmed` = '1' AND `id` = ?i", $id)->fetch_array(MYSQL_ASSOC);
+        $this->auth($user_row['nickname'], $user_row['password']);
+    }
+
     private function auth($nickname, $password) {
-        $password_hash = md5(md5($password.';'));
-        $result = $this->db->query("SELECT `id`,`password`,`login_key` FROM `users` WHERE `nickname` = ?s", (string)$nickname);
+        $password_hash = $password;
+        $result = $this->db->query("SELECT * FROM `users` WHERE `confirmed` = '1' AND `nickname` = ?s", (string)$nickname);
         if ($result->num_rows) {
             $row = $result->fetch_assoc();
             if ($row['password'] === $password_hash) {
@@ -53,7 +59,7 @@ class Authorization implements AuthorizationInterface {
     }
 
     private function generateKey() {
-        return md5(mktime().rand(1, 10e5));
+        return md5(mktime().rand(1, 10e9));
     }
 
     private function setLoginKey($user_id, $access_key) {

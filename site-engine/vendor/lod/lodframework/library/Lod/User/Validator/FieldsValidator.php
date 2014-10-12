@@ -2,16 +2,19 @@
 
 namespace Lod\User\Validator;
 
+use Lod\Core\Application;
+
 class FieldsValidator {
 
     public static $patterns = array(
-        'email' => "/^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/i",
+        'email' => "/^[-a-z0-9!#$%&'*+\/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+\/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)+(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/i",
         'nickname' => "/^[a-z][0-9a-z_]{3,50}$/i",
         'password' => "/^.{6,128}$/",
         'github_account' => "/^[a-z][0-9a-z_]{2,50}$/i",
         'phone_number' => "/^\+*[0-9]{9,14}$/i",
         'vk_profile' => "/^(http:\/\/|https:\/\/)*(www\.)*vk\.com\/[a-z0-9._]{2,100}$/i",
-        'enrollment_year' => "/^[1-2][0-9]{3}$/i"
+        'enrollment_year' => "/^[1-2][0-9]{3}$/i",
+        'name' => "/^[а-яА-ЯёЁ]+/"
     );
 
     public function isEmailValid($email) {
@@ -58,6 +61,13 @@ class FieldsValidator {
 
     public function isEnrollmentYearValid($year) {
         if (preg_match(self::$patterns['enrollment_year'], $year)) {
+            return !0;
+        }
+        return !1;
+    }
+
+    public function isNameValid($name) {
+        if (preg_match(self::$patterns['name'], $name)) {
             return !0;
         }
         return !1;

@@ -5,9 +5,9 @@
             <h1>Регистрация <small></small></h1>
         </div>
 
-        <form class="form-horizontal" id="registerForm" method="post" action="">
+        <form class="form-horizontal" id="registerForm" onsubmit="User.signUpStart(); return !1;">
 
-            <div class="form-group">
+            <div class="form-group" id="login_field">
                 <label class="col-lg-3 control-label">Логин</label>
                 <div class="col-lg-5">
                     <div class="input-group">
@@ -52,17 +52,17 @@
                 <div class="col-lg-5">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="password" class="form-control" name="password" />
+                        <input type="password" id="register_password" class="form-control" name="password" />
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" id="confirm_field">
                 <label class="col-lg-3 control-label">Пароль еще раз</label>
                 <div class="col-lg-5">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input id="confirm_password" type="password" class="form-control" name="passwordagain" />
+                        <input type="password" class="form-control" name="passwordagain" />
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
             <div class="form-group">
                 <label class="col-lg-3 control-label"></label>
                 <div class="col-lg-5">
-                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                    <button id="register_button" type="submit" class="btn btn-primary">Зарегистрироваться</button>
                 </div>
             </div>
         </form>

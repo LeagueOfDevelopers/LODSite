@@ -5,7 +5,10 @@ return array(
         'index' => 'index',
         'auth' => 'auth',
         'logout' => 'logout',
-        'register' => 'register'
+        'register' => 'register',
+        'signup' => 'signUp',
+        'checklogin' => 'checkLogin',
+        'confirm' => 'confirmAccount'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -45,6 +48,24 @@ return array(
                         array(
                             'range' => 'default',
                             'value' => 'register/register_form'
+                        )
+                    )
+                ),
+                'register.success' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'register.success/register.success'
+                        )
+                    )
+                ),
+                'register.confirmed' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'register.confirmed/register.confirmed'
                         )
                     )
                 )
