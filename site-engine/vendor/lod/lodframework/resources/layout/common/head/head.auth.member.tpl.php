@@ -20,6 +20,7 @@ $user = $data['user'];
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/">Главная</a></li>
+                <li><a href="/forum">Форум</a></li>
                 <li><a href="/portfolio">Портфолио</a></li>
                 <li><a href="/orders">Стол заказов</a></li>
                 <li class="dropdown">
