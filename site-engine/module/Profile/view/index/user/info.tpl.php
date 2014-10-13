@@ -11,13 +11,13 @@ $user = $this->getData()['user'];
 $is_my_account = $user->isAuth() ? $profile_user->getId() == $user->getId() : false;
 
 $vk = $profile_user->getVkProfileReference();
-$vk_flag = !empty($vk);
+$vk_flag = !empty($vk) && ($user->getAccessLevel() >= 5 || $is_my_account);
 
 $phone = $profile_user->getPhoneNumber();
-$phone_flag = !empty($phone);
+$phone_flag = !empty($phone) && ($user->getAccessLevel() >= 5 || $is_my_account);
 
 $skype = $profile_user->getSkypeAccountName();
-$skype_flag = !empty($skype);
+$skype_flag = !empty($skype) && ($user->getAccessLevel() >= 5 || $is_my_account);
 
 $faculty = $profile_user->getFaculty();
 $faculty_flag = !empty($faculty);
@@ -42,6 +42,8 @@ $recent_flag = true;
 
 $about = $profile_user->getAbout();
 $about_flag = true;
+
+$last_activity = $profile_user->getRecentActivityTime() ? 'Последняя активность '.$profile_user->getRecentActivityDate() : 'Еще не входил в свой аккаунт';
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">Основная информация</div>
@@ -50,7 +52,9 @@ $about_flag = true;
         <tbody>
         <tr>
             <td><b>Сейчас</b></td>
-            <td><?=($profile_user->isOnline() ? 'Online' : 'Offline')?></td>
+            <td>
+                <span data-toggle="tooltip" data-placement="right" title="" data-original-title="<?=$last_activity?>"><?=($profile_user->isOnline() ? 'Online' : 'Offline')?></span>
+            </td>
         </tr>
         <tr>
             <td><b>Логин</b></td>

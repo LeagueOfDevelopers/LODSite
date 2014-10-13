@@ -84,6 +84,15 @@ return array(
                             'value' => 'index/right_block/right'
                         )
                     )
+                ),
+                'recent_activity_users' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/right_block/users.list'
+                        )
+                    )
                 )
             )
         ),

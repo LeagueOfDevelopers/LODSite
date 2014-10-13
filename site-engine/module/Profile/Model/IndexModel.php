@@ -30,12 +30,30 @@ class IndexModel extends AbstractModel {
         $profile_user->allocateUserById($profile_user_id);
         $profile_user->incrementViewCount();
 
+        $last_activity_users = $this->getLastActivityUsers();
 
         $this->setData(array(
             'user' => $user,
-            'profile_user' => $profile_user
+            'profile_user' => $profile_user,
+            'last_activity_users' => $last_activity_users
         ));
 
         return $this;
+    }
+
+    private function getLastActivityUsers() {
+        $db = $this->getLodDb();
+        $result = $db->query(
+            "SELECT * FROM `users`
+            WHERE `confirmed` = '1' AND `recent_activity_time` <> 0
+            ORDER BY `recent_activity_time` DESC
+            LIMIT 0, 10"
+        );
+        $users = array();
+        while ($row = $result->fetch_array(MYSQL_ASSOC)) {
+            $entity = new User($db, $row);
+            array_push($users, $entity);
+        }
+        return $users;
     }
 }
