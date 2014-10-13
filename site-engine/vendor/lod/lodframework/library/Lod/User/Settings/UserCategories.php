@@ -11,23 +11,28 @@ class UserCategories {
             'value' => 'Не определено'
         ),
         '0' => array(
-            'color' => '#ccc',
+            'color' => '#777',
+            'background' => '#ccc',
             'value' => 'Гость'
         ),
         '1' => array(
-            'color' => '#777',
+            'color' => '#428BCA',
+            'background' => 'rgba(42, 84, 172, 0.11)',
             'value' => 'Пользователь'
         ),
         '5' => array(
-            'color' => '#777',
+            'color' => '#FFF',
+            'background' => 'rgba(29, 154, 37, 0.66)',
             'value' => 'Разработчик'
         ),
         '8' => array(
-            'color' => '#777',
+            'color' => '#FFF',
+            'background' => '#50B7B9',
             'value' => 'Менеджер'
         ),
         '10' => array(
-            'color' => '#d00',
+            'color' => '#FFF',
+            'background' => '#e67e22',
             'value' => 'Администратор'
         )
     );
@@ -38,6 +43,10 @@ class UserCategories {
 
     public static function defineCategoryColor($access_level) {
         return self::defineCategory($access_level)['color'];
+    }
+
+    public static function defineCategoryBackground($access_level) {
+        return self::defineCategory($access_level)['background'];
     }
 
     private static function defineCategory($access_level) {

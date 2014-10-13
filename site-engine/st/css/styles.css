@@ -132,3 +132,26 @@ nav:hover { opacity: 1.0; }
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
 }
+
+.online-pointer {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: rgba(0, 117, 255, 0.71);
+    border-radius: 10px;
+    margin-left: 2px;
+    position: relative;
+    top: -1px;
+}
+
+.badge.badge-lod-blue {
+    color: #007BD5;
+    background-color: rgba(29, 138, 217, 0.23);
+    cursor: default;
+}
+
+.badge.badge-lod-gray {
+    color: #6E6E6E;
+    background-color: rgba(98, 98, 98, 0.23);
+    cursor: default;
+}

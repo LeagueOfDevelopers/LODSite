@@ -68,7 +68,7 @@ class User implements UserInterface {
     }
 
     public function getAccessLevel() {
-        return $this->table_row['access_level'];
+        return !empty($this->table_row['access_level']) ? $this->table_row['access_level'] : 0;
     }
 
     public function getCategoryName() {
@@ -209,6 +209,10 @@ class User implements UserInterface {
 
     public function getRecentActivityTime() {
         return !empty($this->table_row['recent_activity_time']) ? intval($this->table_row['recent_activity_time']) : 0;
+    }
+
+    public function getRecentActivityDate() {
+        return date("d.m.Y в H:i", $this->getRecentActivityTime());
     }
 
     public function getRecentActivityEllapsed() {
