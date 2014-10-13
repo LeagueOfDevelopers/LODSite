@@ -4,7 +4,8 @@ return array(
     'modules' => array(
         '404' => 'Err404',
         'index' => 'Index',
-        'user' => 'User'
+        'user' => 'User',
+        'profile' => 'Profile'
     ),
     'module_options' => array(
         'module_path' => '/module'
@@ -45,8 +46,12 @@ return array(
                     'authorized_mode' => true,
                     'allocated_paths' => array(
                         array(
-                            'range' => array(1, 10),
+                            'range' => array(1, 4),
                             'value' => 'common/head/head.auth'
+                        ),
+                        array(
+                            'range' => array(5, 10),
+                            'value' => 'common/head/head.auth.member'
                         ),
                         array(
                             'range' => 'default',

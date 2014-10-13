@@ -41,13 +41,14 @@ interface UserInterface {
     function getViewCount();
     function getPublicLoginKey();
     function getSex();
+    function getViewSex();
+    function getRecentActivityTime();
+    function getRecentActivityEllapsed();
+    function getAbout();
 
     function isBan();
-    function unBan();
-    function setBan();
-    function setResetPasswordKey();
+    function isOnline();
 
-    function setAccessLevel($number);
     function setEmail($email);
     function setPasswordHash($hash);
     function setFirstName($first_name);
@@ -62,4 +63,7 @@ interface UserInterface {
     function setUniversityEnrollmentYear($year);
     function incrementViewCount();
     function updateLastLoggedTime();
+    function setSex($sex);
+    function updateRecentActivtyTime();
+    function setAbout($text);
 }

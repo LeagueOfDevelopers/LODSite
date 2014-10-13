@@ -2,11 +2,8 @@
 
 namespace Index\Model;
 
-use Lod\Core\Application;
 use Lod\Core\Model\AbstractModel;
-use Lod\User\Authorization\Authorization;
 use Lod\User\Authorization\CheckAuthorization;
-use Lod\User\Authorization\Logout;
 use Lod\User\User;
 
 class IndexModel extends AbstractModel {
