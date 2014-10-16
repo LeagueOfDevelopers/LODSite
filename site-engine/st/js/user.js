@@ -69,4 +69,43 @@ var User = {};
             window.refresh('http://' + window.location.host + "/user/register?success");
         }
     };
+
+    obj.saveModifiedStart = function() {
+        var fields = $('#editForm input');
+        var data = {};
+        var k = 0;
+        try {
+            for (var field in fields) {
+                if (!fields.hasOwnProperty(field)) continue;
+                k++;
+                if (k > 10)
+                    break;
+                if (k == 3 || k == 4) {
+                    fields[field].checked && (data[fields[field].name] = fields[field].value);
+                    continue;
+                }
+                data[fields[field].name] = fields[field].value;
+            }
+            var textarea = $('#editForm textarea')[0];
+            data[textarea.name] = textarea.value;
+            var select_year = $('#editForm select')[0];
+            data[select_year.name] = select_year.value;
+            User.saveModified(data);
+        } catch (err) {
+            alert(err.toString);
+        }
+    };
+
+    obj.saveModified = function(data) {
+        var obj = {};
+            obj.url = "http://" + window.location.host + "/profile/save_modified";
+            obj.data = data;
+        Ajax.post(obj, User.saveModifiedHandler);
+    };
+
+    obj.saveModifiedHandler = function(res) {
+        if (res.result) {
+            window.refresh('http://' + window.location.host + "/profile/edit?success");
+        }
+    };
 })(User);

@@ -2,7 +2,9 @@
 
 return array(
     'actions' => array(
-        'index' => 'index'
+        'index' => 'index',
+        'edit' => 'edit',
+        'save_modified' => 'saveModified'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -10,8 +12,13 @@ return array(
                 'keywords' => '<meta name="keywords" content="Лига разработчиков, Мисис, НИТУ МИСиС">',
                 'description' => '<meta name="description" content="Логово программистов">'
             ),
-            'script' => array(),
-            'css' => array(),
+            'script' => array(
+                'bootstrapValidator',
+                'edit'
+            ),
+            'css' => array(
+                'bootstrapValidator.min'
+            ),
             'module_views' => array(
                 'content' => array(
                     'authorized_mode' => false,
@@ -91,6 +98,60 @@ return array(
                         array(
                             'range' => 'default',
                             'value' => 'index/right_block/users.list'
+                        )
+                    )
+                ),
+                'edit.main' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'edit/main/content'
+                        )
+                    )
+                ),
+                'edit.container' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'edit/main/container'
+                        )
+                    )
+                ),
+                'edit.navigation' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'edit/inner/navigation'
+                        )
+                    )
+                ),
+                'edit.header' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'edit/inner/header'
+                        )
+                    )
+                ),
+                'edit.form' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'edit/inner/edit_form'
+                        )
+                    )
+                ),
+                'edit.success' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'edit/states/success'
                         )
                     )
                 )
