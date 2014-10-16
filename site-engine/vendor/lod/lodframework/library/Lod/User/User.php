@@ -218,7 +218,7 @@ class User implements UserInterface {
     public function getRecentActivityEllapsed() {
         $time = $this->getRecentActivityTime();
         if (!$time) {
-            return 'Еще не был на сайте'.($this->getSex() == 'b' ? '' : 'a');
+            return 'Еще не был'.($this->getSex() == 'b' ? '' : 'a').' на сайте';
         }
         return 'Был'.($this->getSex() == 'b' ? '' : 'a').' в сети '.$this->formatEllapsedTime($time);
     }
@@ -227,7 +227,7 @@ class User implements UserInterface {
         $recent_activity_time = $this->getRecentActivityTime();
         $cur_time = time();
         $offset = $cur_time - $recent_activity_time;
-        return $offset < 300;
+        return $offset < 300 && $this->getPublicLoginKey();
     }
 
     public function getAbout() {
@@ -350,7 +350,7 @@ class User implements UserInterface {
 
     public function setUniversityEnrollmentYear($year) {
         $user_id = $this->getId();
-        if (!is_numeric($user_id)) {
+        if (!is_numeric($user_id) || empty($year)) {
             return;
         }
         $this->db->query("UPDATE `users` SET `university_enrollment_year` = ?i WHERE `id` = ?i", $year, $user_id);

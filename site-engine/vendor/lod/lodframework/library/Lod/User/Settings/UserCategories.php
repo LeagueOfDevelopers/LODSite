@@ -10,15 +10,10 @@ class UserCategories {
             'color' => '#ccc',
             'value' => 'Не определено'
         ),
-        '0' => array(
-            'color' => '#777',
-            'background' => '#ccc',
-            'value' => 'Гость'
-        ),
         '1' => array(
             'color' => '#428BCA',
             'background' => 'rgba(42, 84, 172, 0.11)',
-            'value' => 'Пользователь'
+            'value' => 'Гость'
         ),
         '5' => array(
             'color' => '#FFF',

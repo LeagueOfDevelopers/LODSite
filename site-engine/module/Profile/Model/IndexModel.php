@@ -28,7 +28,15 @@ class IndexModel extends AbstractModel {
 
         $profile_user = new User($this->getLodDb());
         $profile_user->allocateUserById($profile_user_id);
-        $profile_user->incrementViewCount();
+
+        if (!$profile_user->getObject()) {
+            Application::toRoute('/');
+            Application::stop();
+        }
+
+        if ($user->isAuth() && $profile_user_id != $user->getId()) {
+            $profile_user->incrementViewCount();
+        }
 
         $last_activity_users = $this->getLastActivityUsers();
 
@@ -45,7 +53,7 @@ class IndexModel extends AbstractModel {
         $db = $this->getLodDb();
         $result = $db->query(
             "SELECT * FROM `users`
-            WHERE `confirmed` = '1' AND `recent_activity_time` <> 0
+            WHERE `confirmed` = '1' AND `admin_confirmed` = '1' AND `recent_activity_time` <> 0
             ORDER BY `recent_activity_time` DESC
             LIMIT 0, 10"
         );

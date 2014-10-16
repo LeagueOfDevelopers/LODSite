@@ -33,13 +33,13 @@ class Authorization implements AuthorizationInterface {
     }
 
     public function signInById($id) {
-        $user_row = $this->db->query("SELECT * FROM `users` WHERE `confirmed` = '1' AND `id` = ?i", $id)->fetch_array(MYSQL_ASSOC);
+        $user_row = $this->db->query("SELECT * FROM `users` WHERE `confirmed` = '1' AND `admin_confirmed` = '1' AND `id` = ?i", $id)->fetch_array(MYSQL_ASSOC);
         $this->auth($user_row['nickname'], $user_row['password']);
     }
 
     private function auth($nickname, $password) {
         $password_hash = $password;
-        $result = $this->db->query("SELECT * FROM `users` WHERE `confirmed` = '1' AND `nickname` = ?s", (string)$nickname);
+        $result = $this->db->query("SELECT * FROM `users` WHERE `confirmed` = '1' AND `admin_confirmed` = '1' AND `nickname` = ?s", (string)$nickname);
         if ($result->num_rows) {
             $row = $result->fetch_assoc();
             if ($row['password'] === $password_hash) {

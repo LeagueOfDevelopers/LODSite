@@ -142,16 +142,33 @@ nav:hover { opacity: 1.0; }
     margin-left: 2px;
     position: relative;
     top: -1px;
+    z-index: 10;
+}
+
+.badge.badge-lod-blue,
+.badge.badge-lod-gray {
+    cursor: default;
+    position: absolute;
+    top: 11px;
+    right: 9px;
+    z-index: 100;
 }
 
 .badge.badge-lod-blue {
     color: #007BD5;
     background-color: rgba(29, 138, 217, 0.23);
-    cursor: default;
 }
 
 .badge.badge-lod-gray {
     color: #6E6E6E;
     background-color: rgba(98, 98, 98, 0.23);
-    cursor: default;
+}
+
+.user-link {
+    max-width: 60%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
 }

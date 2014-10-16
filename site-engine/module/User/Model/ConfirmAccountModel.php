@@ -18,9 +18,6 @@ class ConfirmAccountModel extends AbstractModel {
             $this->getLodDb()->query("UPDATE `users` SET `confirmed` = '1' WHERE `id` = ?i", $id);
             $this->getLodDb()->query("COMMIT");
             $confirmed = true;
-
-            $auth = new Authorization($this->getLodDb());
-            $auth->signInById($id);
         }
         $this->setData(array(
             'result' => $confirmed

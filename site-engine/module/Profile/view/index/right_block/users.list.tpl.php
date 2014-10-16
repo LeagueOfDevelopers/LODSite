@@ -15,7 +15,7 @@ $users_list = is_array($this->getData()['last_activity_users']) ? $this->getData
     /** @var \Lod\User\User $cur_user */
     foreach ($users_list as $cur_user): ?>
         <li class="list-group-item">
-            <a href="/profile?id=<?=$cur_user->getId()?>"><?=$cur_user->getViewName()?></a>
+            <a class="user-link" href="/profile?id=<?=$cur_user->getId()?>"><?=$cur_user->getViewName()?></a>
             <?php if ($cur_user->isOnline()): ?>
                 <span class="online-pointer"></span>
                 <span class="badge badge-lod-blue" data-toggle="tooltip" data-placement="left" title="Последняя активность <?=$cur_user->getRecentActivityDate()?>">На сайте</span>

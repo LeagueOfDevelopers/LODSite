@@ -6,6 +6,7 @@ use Lod\Core\Application;
 use Lod\Core\View\View;
 use User\Model\AuthModel;
 use Lod\Core\Controller\AbstractController;
+use User\Model\CheckEmailModel;
 use User\Model\CheckLoginModel;
 use User\Model\ConfirmAccountModel;
 use User\Model\LogoutModel;
@@ -54,6 +55,13 @@ class Controller extends AbstractController {
 
     public function checkLoginAction() {
         $model = new CheckLoginModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function checkEmailAction() {
+        $model = new CheckEmailModel();
         $data = $model->main()->getData();
         Application::setContentType('json');
         echo json_encode($data);
