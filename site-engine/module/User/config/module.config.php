@@ -8,6 +8,7 @@ return array(
         'register' => 'register',
         'signup' => 'signUp',
         'checklogin' => 'checkLogin',
+        'checkemail' => 'checkEmail',
         'confirm' => 'confirmAccount'
     ),
     'module_includes' => array(

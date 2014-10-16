@@ -39,10 +39,18 @@ var User = {};
             for (var field in fields) {
                 if (!fields.hasOwnProperty(field)) continue;
                 k++;
-                if (k > 6)
+                if (k > 14)
                     break;
+                if (k == 7 || k == 8) {
+                    fields[field].checked && (data[fields[field].name] = fields[field].value);
+                    continue;
+                }
                 data[fields[field].name] = fields[field].value;
             }
+            var textarea = $('#registerForm textarea')[0];
+            data[textarea.name] = textarea.value;
+            var select_year = $('#registerForm select')[0];
+            data[select_year.name] = select_year.value;
             User.signUp(data);
         } catch (err) {
             alert(err.toString);

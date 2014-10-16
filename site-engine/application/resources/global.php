@@ -62,7 +62,7 @@ return array(
                 'file' => '/st/css/bootstrapValidator.min.css'
             ),
             'styles' => array(
-                'version' => '1',
+                'version' => '7',
                 'file' => '/st/css/styles.css'
             )
         ),

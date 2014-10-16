@@ -3,6 +3,7 @@
 namespace Lod\User\Registration;
 
 use Lod\Core\Application;
+use Lod\User\User;
 use Lod\User\Validator\FieldsValidator;
 
 class Registration implements RegistrationInterface {
@@ -28,6 +29,19 @@ class Registration implements RegistrationInterface {
         $second_name = $this->data['last_name'];
         $password = $this->data['password'];
         $confirm_password = $this->data['passwordagain'];
+        $sex = $this->data['sex'];
+
+        $vk_profile = $this->data['vk_profile'];
+        $github_account = $this->data['github_account'];
+        $phone = $this->data['phone'];
+        $skype = $this->data['skype'];
+
+        $faculty = $this->data['faculty'];
+        $university_group = $this->data['university_group'];
+        $enrollment_year = $this->data['enrollment_year'];
+
+        $about = $this->data['about'];
+
         $validator = new FieldsValidator();
 
         if (!$validator->isEmailValid($email)) {
@@ -42,8 +56,33 @@ class Registration implements RegistrationInterface {
         if (!$validator->isPasswordValid($password) || $password != $confirm_password) {
             return;
         }
+        if ($sex != 'b' && $sex != 'g') {
+            return;
+        }
+        if (!$validator->isVkProfileValid($vk_profile)) {
+            return;
+        }
+        if (!$validator->isGitHubAccountValid($github_account)) {
+            return;
+        }
+        if (!$validator->isPhoneNumberValid($phone)) {
+            return;
+        }
+        if (!$validator->isSkypeLoginValid($skype)) {
+            $skype = '';
+        }
+        if (!$validator->isFacultyValid($faculty)) {
+            $faculty = '';
+        }
+        if (!$validator->isTextValid($university_group)) {
+            $university_group = '';
+        }
+        if (!$validator->isEnrollmentYearValid($enrollment_year)) {
+            $enrollment_year = '';
+        }
 
-        $result = $this->db->query("SELECT * FROM `users` WHERE `nickname` = ?s", $nickname);
+
+        $result = $this->db->query("SELECT * FROM `users` WHERE `nickname` = ?s or `email` = ?s", $nickname, $email);
         if ($result->num_rows) {
             return;
         }
@@ -53,7 +92,16 @@ class Registration implements RegistrationInterface {
             'nickname' => $nickname,
             'first_name' => $first_name,
             'second_name' => $second_name,
-            'password' => $password
+            'password' => $password,
+            'sex' => $sex,
+            'vk_profile' => $vk_profile,
+            'github_account' => $github_account,
+            'phone' => $phone,
+            'skype' => $skype,
+            'faculty' => $faculty,
+            'group' => $university_group,
+            'enrollment_year' => $enrollment_year,
+            'about' => $about
         ));
     }
 
@@ -68,6 +116,18 @@ class Registration implements RegistrationInterface {
 
         $user_row = $this->db->query("SELECT * FROM `users` WHERE `nickname` = ?s", $user['nickname'])->fetch_array(MYSQL_ASSOC);
         $this->sendKeyOnEmail($user['email'], $user_row['id'], $confirm_key);
+
+        $user_object = new User($this->db, $user_row);
+        $user_object->setSex($user['sex']);
+        $user_object->setVkProfileReference($user['vk_profile']);
+        $user_object->setGitHubAccountName($user['github_account']);
+        $user_object->setPhoneNumber($user['phone']);
+        $user_object->setSkypeAccountName($user['skype']);
+        $user_object->setFaculty($user['faculty']);
+        $user_object->setUniversityGroup($user['group']);
+        $user_object->setUniversityEnrollmentYear($user['enrollment_year']);
+        $user_object->setAbout($user['about']);
+
         $this->result = true;
     }
 

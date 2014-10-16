@@ -13,6 +13,9 @@ $is_my_account = $user->isAuth() ? $profile_user->getId() == $user->getId() : fa
 $vk = $profile_user->getVkProfileReference();
 $vk_flag = !empty($vk) && ($user->getAccessLevel() >= 5 || $is_my_account);
 
+$github = $profile_user->getGitHubReference();
+$github_flag = !empty($github);
+
 $phone = $profile_user->getPhoneNumber();
 $phone_flag = !empty($phone) && ($user->getAccessLevel() >= 5 || $is_my_account);
 
@@ -94,6 +97,12 @@ $last_activity = $profile_user->getRecentActivityTime() ? 'Последняя а
             <tr>
                 <td><b>Skype</b></td>
                 <td><?=$skype?></td>
+            </tr>
+        <?php endif; ?>
+        <?php if ($github_flag): ?>
+            <tr>
+                <td><b>Профиль GitHub</b></td>
+                <td><a target="_blank" href="<?=$github?>"><?=$github?></a></td>
             </tr>
         <?php endif; ?>
         <?php if ($faculty_flag): ?>
