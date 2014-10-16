@@ -160,7 +160,7 @@ class User implements UserInterface {
             $course_number = 1;
         }
         if ($course_number > 4) {
-            $course_number = 'Закончил(-а) в '.($year + 4).' году';
+            $course_number = 'Закончил'.($this->getSex() == 'b' ? '' : 'a').' в '.($year + 4).' году';
         } else {
             $course_number = $course_number.' курс';
         }

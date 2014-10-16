@@ -37,11 +37,8 @@ $user = $data['user'];
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/profile">Профиль</a></li>
-                        <li><a href="#">Сообщения <span class="badge">0 новых</span></a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Добавить новость</a></li>
-                        <li class="divider"></li>
-                        <li><a href="/settings">Настройки</a></li>
+                        <li><a href="/profile/edit">Редактировать профиль</a></li>
                         <li class="divider"></li>
                         <li><a href="/user/logout">Выход</a></li>
                     </ul>

@@ -38,6 +38,10 @@ return array(
             'register' => array(
                 'version' => '1',
                 'file' => '/st/js/register/register.js'
+            ),
+            'edit' => array(
+                'version' => '1',
+                'file' => '/st/js/edit/edit.js'
             )
         ),
         'css' => array(

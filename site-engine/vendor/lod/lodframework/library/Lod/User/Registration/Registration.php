@@ -2,7 +2,6 @@
 
 namespace Lod\User\Registration;
 
-use Lod\Core\Application;
 use Lod\User\User;
 use Lod\User\Validator\FieldsValidator;
 

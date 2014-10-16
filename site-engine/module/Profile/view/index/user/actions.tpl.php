@@ -35,6 +35,6 @@ $category_background = \Lod\User\Settings\UserCategories::defineCategoryBackgrou
         <li><a><span><span class="glyphicon glyphicon-phone"></span> <?=$phone?></span></a></li>
     <?php endif; ?>
     <?php if ($is_my_account): ?>
-        <li><a href="/edit"><span class="glyphicon glyphicon-pencil"></span> Редактировать</a></li>
+        <li><a href="/profile/edit"><span class="glyphicon glyphicon-pencil"></span> Редактировать</a></li>
     <?php endif; ?>
 </ul><div class="margin20"></div>

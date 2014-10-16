@@ -16,4 +16,8 @@ class View extends AbstractView {
     public function generate() {
         $this->includeFile($this->common_view_path.'/common.tpl.php');
     }
+
+    public function setTitle($title) {
+        $this->general_includes['title'] = $title;
+    }
 }
