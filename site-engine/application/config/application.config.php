@@ -5,7 +5,9 @@ return array(
         '404' => 'Err404',
         'index' => 'Index',
         'user' => 'User',
-        'profile' => 'Profile'
+        'profile' => 'Profile',
+        'feedback' => 'Feedback',
+        'about' => 'About'
     ),
     'module_options' => array(
         'module_path' => '/module'
@@ -25,7 +27,8 @@ return array(
             'title' => 'Лига Разработчиков',
             'meta' => array(
                 'charset' => '<meta http-equiv="content-type" content="text/html; charset=utf-8">',
-                'ie' => '<meta http-equiv="X-UA-Compatible" content="IE=edge">'
+                'ie' => '<meta http-equiv="X-UA-Compatible" content="IE=edge">',
+                'noindex' => '<meta name="robots" content="noindex, nofollow"/>'
             ),
             'script' => array(
                 'jquery',

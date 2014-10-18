@@ -234,6 +234,10 @@ class User implements UserInterface {
         return !empty($this->table_row['about']) ? htmlspecialchars($this->table_row['about']) : "Информация отсутствует";
     }
 
+    public function getPhotoLink() {
+        return !empty($this->table_row['photo']) ? $this->table_row['photo'] : "http://{$_SERVER['HTTP_HOST']}/st/img/noimage.png";
+    }
+
     public function isBan() {
         return intval($this->table_row['ban']) != 0;
     }
@@ -411,6 +415,16 @@ class User implements UserInterface {
         $this->db->query("UPDATE `users` SET `about` = ?s WHERE `id` = ?i", $text, $user_id);
         $this->db->query("COMMIT");
         $this->table_row['about'] = $text;
+    }
+
+    public function setPhoto($ref) {
+        $user_id = $this->getId();
+        if (!is_numeric($user_id)) {
+            return;
+        }
+        $this->db->query("UPDATE `users` SET `photo` = ?s WHERE `id` = ?i", $ref, $user_id);
+        $this->db->query("COMMIT");
+        $this->table_row['photo'] = $ref;
     }
 
     private function formatEllapsedTime($time) {

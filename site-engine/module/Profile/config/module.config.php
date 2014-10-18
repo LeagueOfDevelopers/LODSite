@@ -4,7 +4,8 @@ return array(
     'actions' => array(
         'index' => 'index',
         'edit' => 'edit',
-        'save_modified' => 'saveModified'
+        'save_modified' => 'saveModified',
+        'upload_image' => 'uploadProfileImage'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -14,7 +15,9 @@ return array(
             ),
             'script' => array(
                 'bootstrapValidator',
-                'edit'
+                'edit',
+                'ajaxupload',
+                'profile'
             ),
             'css' => array(
                 'bootstrapValidator.min'

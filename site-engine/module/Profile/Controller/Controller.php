@@ -8,6 +8,7 @@ use Profile\Model\IndexModel;
 use Lod\Core\Controller\AbstractController;
 use Lod\Core\View\View;
 use Profile\Model\SaveModifiedModel;
+use Profile\Model\UploadProfileImageModel;
 
 class Controller extends AbstractController {
 
@@ -40,6 +41,13 @@ class Controller extends AbstractController {
 
     public function saveModifiedAction() {
         $model = new SaveModifiedModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function uploadProfileImageAction() {
+        $model = new UploadProfileImageModel();
         $data = $model->main()->getData();
         Application::setContentType('json');
         echo json_encode($data);
