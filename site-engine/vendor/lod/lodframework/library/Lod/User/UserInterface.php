@@ -45,6 +45,7 @@ interface UserInterface {
     function getRecentActivityTime();
     function getRecentActivityEllapsed();
     function getAbout();
+    function getPhotoLink();
 
     function isBan();
     function isOnline();
@@ -66,4 +67,5 @@ interface UserInterface {
     function setSex($sex);
     function updateRecentActivtyTime();
     function setAbout($text);
+    function setPhoto($ref);
 }

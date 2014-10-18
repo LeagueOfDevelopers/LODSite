@@ -42,6 +42,14 @@ return array(
             'edit' => array(
                 'version' => '1',
                 'file' => '/st/js/edit/edit.js'
+            ),
+            'ajaxupload' => array(
+                'version' => '1',
+                'file' => '/st/js/profile/ajaxupload.3.5.js'
+            ),
+            'profile' => array(
+                'version' => '1',
+                'file' => '/st/js/profile/profile.js'
             )
         ),
         'css' => array(

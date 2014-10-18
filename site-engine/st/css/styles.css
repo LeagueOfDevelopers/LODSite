@@ -172,3 +172,105 @@ nav:hover { opacity: 1.0; }
     white-space: nowrap;
     vertical-align: top;
 }
+
+.profile-img-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    position: relative;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    -webkit-box-shadow: inset 0 1px 0 1px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px 0 1px rgba(0, 0, 0, 0.15);
+    transition: all 0.1s ease-in, background 0.3s ease-in-out;
+    background-repeat: no-repeat;
+}
+
+.animate-ease-in {
+    transition: all .1s ease-in;
+}
+
+.animate-ease-out {
+    transition: all .1s ease-out;
+}
+
+.animate-ease-in-out {
+    transition: all .1s ease-in-out;
+}
+
+.profile-img-wrapper:hover {
+    border-radius: 5%;
+}
+
+.profile-img-change {
+    position: absolute;
+    color: #f1f1f1;
+    font-size: 13px;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    padding: 5px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.profile-img-change:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.profile-img {
+    display: inline-block;
+    position: relative;
+}
+
+.profile-img:hover .profile-img-change {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.profile-img-iprit {
+    transform: rotate(0);
+    animation: object_rotation 600s infinite alternate;
+    -webkit-animation: object_rotation 600s infinite alternate;
+    transition: all .2s linear;
+}
+
+.profile-img-refresh {
+    position: absolute;
+    color: #010101;
+    font-size: 18px;
+    top: 27px;
+    right: 25px;
+    background-color: #FFF;
+    border-radius: 56%;
+    padding: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.37);
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    transform: rotate(0);
+    animation: object_rotation 5s infinite alternate;
+    -webkit-animation: object_rotation 5s infinite alternate;
+}
+
+@-webkit-keyframes object_rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(3600deg);
+    }
+}
+@keyframes object_rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(3600deg);
+    }
+}
