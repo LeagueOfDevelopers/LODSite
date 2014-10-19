@@ -26,10 +26,6 @@ $user = $this->getData()['user'];
             $this->includeModuleView('pagination');
             ?>
 
-            <?php
-            $this->includeModuleView('previews');
-            ?>
-
         </div>
         <?php
         $this->includeModuleView('right_block');

@@ -274,3 +274,9 @@ nav:hover { opacity: 1.0; }
         transform: rotate(3600deg);
     }
 }
+
+.news-date {
+    margin: 10px 1px;
+    color: #909090;
+    font-size: 12px;
+}

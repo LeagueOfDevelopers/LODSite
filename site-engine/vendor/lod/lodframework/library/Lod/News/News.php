@@ -1,10 +1,14 @@
 <?php
 
 namespace Lod\News;
+use Lod\Core\Application;
+
 define ('ASC', 1);
 define('DESC', -1);
 
 class News extends AbstractNews {
+
+    public static $PER_PAGE = 10;
 
     private $db;
 
@@ -53,6 +57,41 @@ class News extends AbstractNews {
             "UPDATE `news`
             SET `title` = ?s, `preview_text` = ?s, `text` = ?s",
             $data['title'], $data['preview_text'], $data['text']
+        );
+    }
+
+    public function getCount() {
+        $result = $this->db->query("SELECT COUNT(*) FROM `news` WHERE `deleted` = '0'")->fetch_array();
+        return $result[0];
+    }
+
+    public function getPagination($cur_page, $per_page) {
+        $count = $this->getCount();
+        $pages = intval($count / $per_page) + 1;
+        $start = $cur_page - 4 < 1 ? 1 : $cur_page - 4;
+        $finish = $start + 8 > $pages ? $pages : $start + 8;
+        $start = $finish - 8 < 1 ? $start : $finish - 8;
+        for ($pages_array = array(), $i = $start; $i <= $finish; ++$i) {
+            $pages_array[] = array(
+                'active' => $i == $cur_page,
+                'view_number' => $i,
+                'page' => $i
+            );
+        }
+        $left = array(
+            'disabled' => $cur_page == 1,
+            'view_symbol' => '«',
+            'value' => $cur_page - 1
+        );
+        $right = array(
+            'disabled' => $cur_page == $pages,
+            'view_symbol' => '»',
+            'value' => $cur_page + 1
+        );
+        return array(
+            'left' => $left,
+            'pagination' => $pages_array,
+            'right' => $right
         );
     }
 }

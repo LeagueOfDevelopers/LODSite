@@ -31,15 +31,6 @@ return array(
                         )
                     )
                 ),
-                'previews' => array(
-                    'authorized_mode' => true,
-                    'allocated_paths' => array(
-                        array(
-                            'range' => 'default',
-                            'value' => 'index/previews/previews'
-                        )
-                    )
-                ),
                 'news' => array(
                     'authorized_mode' => true,
                     'allocated_paths' => array(
