@@ -19,7 +19,7 @@ $last_activity = $profile_user->getRecentActivityTime() ? 'Последняя а
 <div class="page-header">
     <h1>
         <div class="profile-img">
-            <div class="profile-img-wrapper <?=($iflag?'profile-img-iprit':'')?>" id="profile-image" style="background-image: url(<?=$profile_image?>);"></div>
+            <div class="profile-img-wrapper<?=($iflag?' profile-img-iprit':'')?>" id="profile-image" style="background-image: url(<?=$profile_image?>);"></div>
             <?php if ($is_my_profile): ?>
             <div class="profile-img-change animate-ease-in-out" id="upload-button">
                 <span class="glyphicon glyphicon-pencil"></span>

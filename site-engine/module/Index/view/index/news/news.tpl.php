@@ -1,47 +1,27 @@
+<?php
+/**
+ * @var $this \Lod\Core\View\AbstractView
+ */
+$user = $this->getData()['user'];
+$news = $this->getData()['news'];
+?>
 <div class="row">
-    <div class="col-sm-6 col-md-6">
-        <div class="thumbnail">
-            <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a href="#" class="btn btn-default" role="button">Комментарии <span class="badge">42</span></a> <a href="#" class="btn btn-primary" role="button">Перейти к новости</a></p>
+    <?php /** @var \Lod\News\NewsItem $news_item */
+    foreach($news as $news_item): ?>
+        <div class="col-sm-12 col-md-12">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3><?=$news_item->getTitle()?></h3>
+                    <div class="news-date">
+                        <span>Добавлено <?=$news_item->getDate()?></span>
+                    </div>
+                    <p><?=$news_item->getPreviewText()?></p>
+                    <p>
+                        <a href="/news?id=<?=$news_item->getId()?>#comments" class="btn btn-default" role="button">Комментарии <span class="badge"><?=$news_item->getCountComments()?></span></a>
+                        <a href="/news?id=<?=$news_item->getId()?>" class="btn btn-primary" role="button" style="margin-left: 10px;">Перейти к новости »</a>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
-        <div class="thumbnail">
-            <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a href="#" class="btn btn-default" role="button">Комментарии <span class="badge">42</span></a> <a href="#" class="btn btn-primary" role="button">Перейти к новости</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
-        <div class="thumbnail">
-            <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a href="#" class="btn btn-default" role="button">Комментарии <span class="badge">42</span></a> <a href="#" class="btn btn-primary" role="button">Перейти к новости</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
-        <div class="thumbnail">
-            <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a href="#" class="btn btn-default" role="button">Комментарии <span class="badge">42</span></a> <a href="#" class="btn btn-primary" role="button">Перейти к новости</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
-        <div class="thumbnail">
-            <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a href="#" class="btn btn-default" role="button">Комментарии <span class="badge">42</span></a> <a href="#" class="btn btn-primary" role="button">Перейти к новости</a></p>
-            </div>
-        </div>
-    </div>
+    <?php endforeach; ?>
 </div>

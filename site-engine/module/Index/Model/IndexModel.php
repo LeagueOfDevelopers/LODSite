@@ -26,10 +26,12 @@ class IndexModel extends AbstractModel {
 
         $news_object = new News($this->getLodDb());
         $news_list = $news_object->getNews($count, $offset);
-        
+        $pagination = $news_object->getPagination($page, News::$PER_PAGE);
+
         $this->setData(array(
             'user' => $user,
-            'news' => $news_list
+            'news' => $news_list,
+            'pagination' => $pagination
         ));
 
         return $this;
