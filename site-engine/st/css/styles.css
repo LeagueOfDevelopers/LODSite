@@ -173,12 +173,11 @@ nav:hover { opacity: 1.0; }
     vertical-align: top;
 }
 
+.profile-img-wrapper-comment,
 .profile-img-wrapper {
     display: inline-block;
     overflow: hidden;
     vertical-align: middle;
-    width: 84px;
-    height: 84px;
     border-radius: 50%;
     position: relative;
     -webkit-background-size: cover;
@@ -188,6 +187,16 @@ nav:hover { opacity: 1.0; }
     box-shadow: inset 0 1px 0 1px rgba(0, 0, 0, 0.15);
     transition: all 0.1s ease-in, background 0.3s ease-in-out;
     background-repeat: no-repeat;
+}
+
+.profile-img-wrapper {
+    width: 84px;
+    height: 84px;
+}
+
+.profile-img-wrapper-comment {
+    width: 62px;
+    height: 62px;
 }
 
 .animate-ease-in {
@@ -202,6 +211,7 @@ nav:hover { opacity: 1.0; }
     transition: all .1s ease-in-out;
 }
 
+.profile-img-wrapper-comment:hover,
 .profile-img-wrapper:hover {
     border-radius: 5%;
 }
@@ -279,4 +289,47 @@ nav:hover { opacity: 1.0; }
     margin: 10px 1px;
     color: #909090;
     font-size: 12px;
+}
+
+.comment-reply {
+    padding: 2px 0 0 0;
+    margin-left: 72px;
+}
+
+.comment-text {
+    margin-left: 72px;
+    overflow: hidden;
+}
+
+.comment-reply-selected {
+    display: inline-block;
+    margin-left: 3px;
+    top: 1px;
+    position: relative;
+}
+
+.comment-reply-remove-selected {
+    cursor: pointer;
+    color: #5C97BF;
+    top: 2px;
+    position: relative;
+}
+
+.comment-remove {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    cursor: pointer;
+}
+
+.media {
+    position: relative;
+}
+
+.comment-attachments {
+    padding: 0 0 13px 0;
+}
+
+.comment-attachments:hover {
+    color: #667;
 }

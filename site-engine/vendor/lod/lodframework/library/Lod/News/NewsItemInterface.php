@@ -22,6 +22,11 @@ interface NewsItemInterface {
     function getTime();
     function getDate();
 
+    /**
+     * @return \Lod\News\Comments\Comments
+     */
+    function getCommentsObject();
+
     function incrementCountViews();
     function incrementCountComments();
     function decrementCountComments();

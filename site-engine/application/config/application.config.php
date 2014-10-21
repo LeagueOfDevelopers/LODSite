@@ -7,7 +7,8 @@ return array(
         'user' => 'User',
         'profile' => 'Profile',
         'feedback' => 'Feedback',
-        'about' => 'About'
+        'about' => 'About',
+        'news' => 'News'
     ),
     'module_options' => array(
         'module_path' => '/module'
