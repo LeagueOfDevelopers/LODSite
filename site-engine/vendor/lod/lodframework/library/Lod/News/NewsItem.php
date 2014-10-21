@@ -2,6 +2,8 @@
 
 namespace Lod\News;
 
+use Lod\Core\Application;
+use Lod\News\Comments\Comments;
 use Lod\User\User;
 
 class NewsItem implements NewsItemInterface {
@@ -15,7 +17,7 @@ class NewsItem implements NewsItemInterface {
      */
     private $row;
 
-    function __construct(&$db, $row) {
+    function __construct(&$db, $row = null) {
         $this->db = $db;
         $this->row = $row;
     }
@@ -32,7 +34,7 @@ class NewsItem implements NewsItemInterface {
         if (!$news_id) {
             return;
         }
-        $result = $this->db->query("SELECT * FROM `news` WHERE `id` = ?i", $news_id);
+        $result = $this->db->query("SELECT * FROM `news` WHERE `id` = ?i AND `deleted` = '0'", $news_id);
         $this->row = $result->fetch_array(MYSQL_ASSOC);
     }
 
@@ -58,6 +60,15 @@ class NewsItem implements NewsItemInterface {
 
     public function getText() {
         return $this->row ? $this->row['text'] : null;
+    }
+
+    public function getFormattedText() {
+        $text = $this->getText();
+        return preg_replace(
+            "/\[src\=\"(.+)\"\s?(alt\=\"(.+)\")?\]/i",
+            "<div class=\"row\"><div class=\"col-xs-12 col-md-12\"><a class=\"thumbnail\" style=\"max-width: 100%;\"><img src=\"$1\"></a></div></div>",
+            $text
+        );
     }
 
     public function getCountComments() {
@@ -88,6 +99,10 @@ class NewsItem implements NewsItemInterface {
 
     public function getDate() {
         return date("d.m.Y в H:i", $this->getTime());
+    }
+
+    public function getCommentsObject() {
+        return new Comments($this->db, $this->getId());
     }
 
     public function incrementCountViews() {

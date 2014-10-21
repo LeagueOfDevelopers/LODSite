@@ -107,7 +107,7 @@ $last_activity = $profile_user->getRecentActivityTime() ? 'Последняя а
         <?php endif; ?>
         <?php if ($faculty_flag): ?>
             <tr>
-                <td><b>Факультет</b></td>
+                <td><b>Кафедра</b></td>
                 <td><?=$faculty?></td>
             </tr>
         <?php endif; ?>

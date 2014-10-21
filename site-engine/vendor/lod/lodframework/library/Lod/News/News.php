@@ -1,7 +1,6 @@
 <?php
 
 namespace Lod\News;
-use Lod\Core\Application;
 
 define ('ASC', 1);
 define('DESC', -1);
@@ -39,17 +38,19 @@ class News extends AbstractNews {
 
     public function addNewsItem($data, $user_id) {
         $this->db->query(
-            "INSERT INTO `news` (`user_id`, `title`, `preview_text`, `text`)
-            VALUES (?i, ?s, ?s, ?s)",
-            $user_id, $data['title'], $data['preview_text'], $data['text']
+            "INSERT INTO `news` (`user_id`, `title`, `preview_text`, `text`, `create_time`)
+            VALUES (?i, ?s, ?s, ?s, ?i)",
+            $user_id, $data['title'], $data['preview_text'], $data['text'], time()
         );
+        $this->db->query("COMMIT");
     }
 
     public function deleteNewsItem($news_id) {
         if (!is_numeric($news_id)) {
             return;
         }
-        $this->db->query("DELETE FROM `news` WHERE `id` = ?i", $news_id);
+        $this->db->query("UPDATE `news` SET `deleted` = '1' WHERE `id` = ?i", $news_id);
+        $this->db->query("COMMIT");
     }
 
     public function updateNewsItem($data) {
@@ -58,6 +59,7 @@ class News extends AbstractNews {
             SET `title` = ?s, `preview_text` = ?s, `text` = ?s",
             $data['title'], $data['preview_text'], $data['text']
         );
+        $this->db->query("COMMIT");
     }
 
     public function getCount() {
@@ -93,5 +95,14 @@ class News extends AbstractNews {
             'pagination' => $pages_array,
             'right' => $right
         );
+    }
+
+    public function getNewsItem($news_id) {
+        if (!is_numeric($news_id)) {
+            return null;
+        }
+        $news_item = new NewsItem($this->db);
+        $news_item->allocateById($news_id);
+        return $news_item->isEmpty() ? null : $news_item;
     }
 }

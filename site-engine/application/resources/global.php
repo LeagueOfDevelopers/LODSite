@@ -50,6 +50,10 @@ return array(
             'profile' => array(
                 'version' => '1',
                 'file' => '/st/js/profile/profile.js'
+            ),
+            'news' => array(
+                'version' => '1',
+                'file' => '/st/js/news/news.js'
             )
         ),
         'css' => array(
