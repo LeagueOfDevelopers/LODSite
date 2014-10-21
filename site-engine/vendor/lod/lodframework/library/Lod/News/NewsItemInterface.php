@@ -29,7 +29,7 @@ interface NewsItemInterface {
 
     function incrementCountViews();
     function incrementCountComments();
-    function decrementCountComments();
+    function refreshCountComments();
 
     function setUserId($id);
     function setTitle($title);

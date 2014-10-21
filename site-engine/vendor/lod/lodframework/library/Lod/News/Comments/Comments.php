@@ -83,7 +83,7 @@ class Comments {
 
         $news_item = new NewsItem($this->db);
         $news_item->allocateById($news_id);
-        $news_item->decrementCountComments();
+        $news_item->refreshCountComments();
 
         return $this;
     }

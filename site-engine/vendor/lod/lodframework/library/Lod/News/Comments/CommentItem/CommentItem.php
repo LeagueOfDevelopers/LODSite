@@ -63,22 +63,20 @@ class CommentItem implements CommentItemInterface {
     }
 
     public function getFormattedText() {
-        $text = $this->getText();
-        $text = preg_replace(
-            "/\[src\=\"((http|https)\:\/\/(www\.)?.+)\"\s?(alt\=\"(.+)\")?\]/i",
-            "<div class=\"row\"><div class=\"col-xs-6 col-md-6\"><a class=\"thumbnail\" style=\"max-width: 100%;\"><img src=\"$1\"></a></div></div>",
-            $text
+        $patterns = array(
+            '/\[((http|https)\:\/\/(www\.)?[^\r\n\t\f \[\]]*)\]/i',
+            '/\s((http|https)\:\/\/(www\.)?[^\r\n\t\f }{]*)\s/i',
+            '/\s\-\-\s/i'
         );
-        $text = preg_replace(
-            "/\[url\=\"((http|https)\:\/\/(www\.)?.+)\"\]/i",
-            "<a target=\"_blank\" href=\"$1\">$1</a>",
-            $text
+        $replacements = array(
+            " <div class=\"row\" style='margin: 10px 0'><div class=\"col-xs-6 col-md-6\"><a class=\"thumbnail\" style=\"max-width: 100%; margin-bottom: 0;\"><img src=\"$1\"></a></div></div> ",
+            " <a target=\"_blank\" href=\"$1\">$1</a> ",
+            " — "
         );
-        $text = preg_replace(
-            "/\s\-\-\s/i",
-            " — ",
-            $text
-        );
+        $text = ' '.$this->getText().' ';
+        for ($i = 0; $i < count($patterns); $i++) {
+            $text = preg_replace($patterns[$i], $replacements[$i], $text);
+        }
         return $text;
     }
 
