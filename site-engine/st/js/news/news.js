@@ -62,11 +62,13 @@ var Comments = {
             url: 'http://' + location.host + '/news/add_comment',
             data: data
         }, Comments.requestReplyHandler);
+        $('#submit-comment').text('Загрузка...').disabled();
     },
     requestReplyHandler: function(res) {
         if (res.result) {
             window.location.href = window.location.href.replace(/(\#\w*)$/gi, '') + '&comment=' + res.inserted_id;
         }
+        $('#submit-comment').text('Добавить').enabled();
     },
     deleteComment: function(comment_id) {
         var data = {
@@ -85,13 +87,13 @@ var Comments = {
     },
     attachImageLink: function() {
         var link = prompt("Вставьте ссылку на изображение");
-        link && (this.comment_field.value += (this.comment_field.value.length ? ' ' : '') + '[src="'+link+'"] ');
+        link && (this.comment_field.value += (this.comment_field.value.length ? ' ' : '') + '['+link+'] ');
         var end = this.comment_field.value.length;
         this.comment_field.setSelectionRange(end, end);
     },
     attachLink: function() {
         var link = prompt("Вставьте ссылку");
-        link && (this.comment_field.value += (this.comment_field.value.length ? ' ' : '') + '[url="'+link+'"] ');
+        link && (this.comment_field.value += (this.comment_field.value.length ? ' ' : '') +link+' ');
         var end = this.comment_field.value.length;
         this.comment_field.setSelectionRange(end, end);
     }

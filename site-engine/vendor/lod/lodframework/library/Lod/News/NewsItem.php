@@ -125,14 +125,19 @@ class NewsItem implements NewsItemInterface {
         $this->row['count_comments']++;
     }
 
-    public function decrementCountComments() {
+    public function refreshCountComments() {
         $news_id = $this->getId();
         if (!is_numeric($news_id)) {
             return;
         }
-        $this->db->query("UPDATE `news` SET `count_comments` = `count_comments` - 1 WHERE `id` = ?i", $news_id);
+        $row = $this->db->query("SELECT COUNT(*) FROM `comments` WHERE `news_id` = ?i AND `deleted` = '0'", $news_id)->fetch_array();
+        if (!count($row)) {
+            return;
+        }
+        $count = $row[0];
+        $this->db->query("UPDATE `news` SET `count_comments` = ?i WHERE `id` = ?i", $count, $news_id);
         $this->db->query("COMMIT");
-        $this->row['count_comments']--;
+        $this->row['count_comments'] = $count;
     }
 
     public function setUserId($user_id) {

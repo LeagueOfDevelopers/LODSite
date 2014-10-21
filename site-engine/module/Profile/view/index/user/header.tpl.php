@@ -30,7 +30,6 @@ $last_activity = $profile_user->getRecentActivityTime() ? 'Последняя а
             <?php endif; ?>
         </div>
         <span><?=$profile_user->getViewName()?>&nbsp;</span>
-        <small title="Идентификатор пользователя">#<?=$profile_user->getId()?></small>&nbsp;
         <?php if ($profile_user->isOnline()): ?>
             <small class="text-success" data-toggle="tooltip" data-placement="right" title="" data-original-title="Сейчас на сайте">Online</small>
         <?php else: ?>
