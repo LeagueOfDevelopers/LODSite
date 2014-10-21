@@ -59,7 +59,7 @@ class CommentItem implements CommentItemInterface {
     }
 
     public function getText() {
-        return $this->row ? $this->row['text'] : null;
+        return $this->row ? strip_tags($this->row['text']) : null;
     }
 
     public function getFormattedText() {
