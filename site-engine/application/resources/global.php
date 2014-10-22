@@ -80,6 +80,10 @@ return array(
             'styles' => array(
                 'version' => '7',
                 'file' => '/st/css/styles.css'
+            ),
+            'styles.admin' => array(
+                'version' => '7',
+                'file' => '/st/css/styles.admin.css'
             )
         ),
         'img' => array(

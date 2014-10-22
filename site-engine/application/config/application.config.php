@@ -8,7 +8,8 @@ return array(
         'profile' => 'Profile',
         'feedback' => 'Feedback',
         'about' => 'About',
-        'news' => 'News'
+        'news' => 'News',
+        'adminium' => 'Admin'
     ),
     'module_options' => array(
         'module_path' => '/module'
@@ -54,8 +55,12 @@ return array(
                             'value' => 'common/head/head.auth'
                         ),
                         array(
-                            'range' => array(5, 10),
+                            'range' => array(5, 9),
                             'value' => 'common/head/head.auth.member'
+                        ),
+                        array(
+                            'range' => array(10, 10),
+                            'value' => 'common/head/head.auth.admin'
                         ),
                         array(
                             'range' => 'default',
