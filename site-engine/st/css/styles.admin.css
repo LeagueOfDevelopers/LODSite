@@ -165,3 +165,7 @@ nav:hover { }
 .placeholders h4 { margin-bottom: 0; }
 .placeholder { margin-bottom: 20px; }
 .placeholder img { display: inline-block; border-radius: 50%; }
+
+.comment-attachments {
+    padding: 0 0 13px 0;
+}

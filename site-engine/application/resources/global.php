@@ -54,6 +54,10 @@ return array(
             'news' => array(
                 'version' => '1',
                 'file' => '/st/js/news/news.js'
+            ),
+            'admin' => array(
+                'version' => '1',
+                'file' => '/st/js/admin/admin.js'
             )
         ),
         'css' => array(
