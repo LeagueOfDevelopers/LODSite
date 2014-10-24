@@ -2,6 +2,8 @@
 
 namespace Lod\News;
 
+use Lod\Core\Application;
+
 define ('ASC', 1);
 define('DESC', -1);
 
@@ -38,9 +40,9 @@ class News extends AbstractNews {
 
     public function addNewsItem($data, $user_id) {
         $this->db->query(
-            "INSERT INTO `news` (`user_id`, `title`, `preview_text`, `text`, `create_time`)
-            VALUES (?i, ?s, ?s, ?s, ?i)",
-            $user_id, $data['title'], $data['preview_text'], $data['text'], time()
+            "INSERT INTO `news` (`user_id`, `title`, `preview_text`, `text`, `photo`, `create_time`)
+            VALUES (?i, ?s, ?s, ?s, ?s, ?i)",
+            $user_id, $data['title'], $data['preview_text'], $data['text'], $data['photo'], time()
         );
         $this->db->query("COMMIT");
     }
@@ -53,11 +55,15 @@ class News extends AbstractNews {
         $this->db->query("COMMIT");
     }
 
-    public function updateNewsItem($data) {
+    public function updateNewsItem($data, $news_id) {
+        if (!is_numeric($news_id)) {
+            return;
+        }
         $this->db->query(
             "UPDATE `news`
-            SET `title` = ?s, `preview_text` = ?s, `text` = ?s",
-            $data['title'], $data['preview_text'], $data['text']
+            SET `title` = ?s, `preview_text` = ?s, `text` = ?s, `photo` = ?s
+            WHERE `id` = ?i",
+            $data['title'], $data['preview_text'], $data['text'], $data['photo'], $news_id
         );
         $this->db->query("COMMIT");
     }

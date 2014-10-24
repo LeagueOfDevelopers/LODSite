@@ -2,7 +2,7 @@
     <div class="col-xs-6">
 
         <div class="page-header">
-            <h1>Регистрация <small></small></h1>
+            <h1>Заявка на вступление в Лигу Разработчиков <small></small></h1>
         </div>
 
         <form class="form-horizontal" id="registerForm" onsubmit="User.signUpStart(); return !1;">
