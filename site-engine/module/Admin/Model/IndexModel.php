@@ -16,7 +16,7 @@ class IndexModel extends AbstractModel {
         $user = new User($this->getLodDb(), $check_auth->getUserRow());
         $user->setCheckAuthorization($check_auth);
 
-        if ($user->getAccessLevel() != 10) {
+        if ($user->getAccessLevel() < 8) {
             Application::toRoute('/');
             Application::stop();
         }

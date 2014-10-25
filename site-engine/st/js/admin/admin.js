@@ -124,5 +124,65 @@ var Admin = {
         if (res.result) {
             window.refresh('/adminium/news');
         }
+    },
+    saveCategory: function(user_id) {
+        var data = {};
+            data.id = user_id;
+            data.category = document.getElementsByName('category')[0].value;
+        var obj = {};
+            obj.url = "http://" + window.location.host + "/adminium/save_user_category";
+            obj.data = data;
+        Ajax.post(obj, Admin.saveCategoryRequestHandler);
+    },
+    saveCategoryRequestHandler: function(res) {
+        if (res.result) {
+            $('#success-save').css({display: 'inline'});
+            setTimeout(function() {
+                $('#success-save').css({display: 'none'});
+            }, 2000);
+        }
+    },
+    signInByUser: function(user_id) {
+        var result = confirm("Вы действительно хотите выйти из панели управления и войти как данный пользователь?");
+        if (!result) {
+            return;
+        }
+        var data = {};
+            data.id = user_id;
+        var obj = {};
+            obj.url = "http://" + window.location.host + "/adminium/signin_by_user";
+            obj.data = data;
+        Ajax.post(obj, Admin.signInByUserRequestHandler);
+    },
+    signInByUserRequestHandler: function(res) {
+        if (res.result) {
+            window.refresh();
+        }
+    },
+    toggleBan: function(user_id) {
+        var data = {};
+            data.id = user_id;
+        var obj = {};
+            obj.url = "http://" + window.location.host + "/adminium/toggle_ban";
+            obj.data = data;
+        Ajax.post(obj, Admin.toggleBanRequestHandler);
+    },
+    toggleBanRequestHandler: function(res) {
+        if (res.result) {
+            window.refresh();
+        }
+    },
+    userConfirm: function(user_id) {
+        var data = {};
+            data.id = user_id;
+        var obj = {};
+            obj.url = "http://" + window.location.host + "/adminium/admin_confirm";
+            obj.data = data;
+        Ajax.post(obj, Admin.userConfirmRequestHandler);
+    },
+    userConfirmRequestHandler: function(res) {
+        if (res.result) {
+            window.refresh();
+        }
     }
 };

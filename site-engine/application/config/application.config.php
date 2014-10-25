@@ -55,11 +55,11 @@ return array(
                             'value' => 'common/head/head.auth'
                         ),
                         array(
-                            'range' => array(5, 9),
+                            'range' => array(5, 7),
                             'value' => 'common/head/head.auth.member'
                         ),
                         array(
-                            'range' => array(10, 10),
+                            'range' => array(8, 10),
                             'value' => 'common/head/head.auth.admin'
                         ),
                         array(

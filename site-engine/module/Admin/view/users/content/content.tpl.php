@@ -15,20 +15,19 @@ $action = $this->getData()['act'];
         ?>
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Новости</h1>
+            <h1 class="page-header">Пользователи</h1>
             <?php
             switch ($action) {
-                case 'add':
-                    $this->includeModuleView('news.add_news');
+                case 'show':
+                    $this->includeModuleView('users.new_users');
+                    $this->includeModuleView('users.users_list');
                     break;
                 case 'edit':
-                    $this->includeModuleView('news.edit_news');
-                    break;
-                case 'show':
-                    $this->includeModuleView('news.news_list');
+                    $this->includeModuleView('users.edit');
                     break;
                 default:
-                    $this->includeModuleView('news.news_list');
+                    $this->includeModuleView('users.new_users');
+                    $this->includeModuleView('users.users_list');
                     break;
             }
             ?>

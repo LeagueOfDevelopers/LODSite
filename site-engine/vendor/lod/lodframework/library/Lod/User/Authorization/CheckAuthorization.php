@@ -39,14 +39,14 @@ class CheckAuthorization implements CheckAuthorizationInterface {
                 }
                 $this->setSession('loginkey', $cookie_key);
                 $this->user_row = $user;
-                $this->result = true;
+                $this->result = $this->user_row['ban'] == '0';
             }
         } else {
             $key_manager = new KeyManager();
             $user_id = $key_manager->getPair($key)[0];
 
             $this->user_row = $this->getUserById($user_id);
-            $this->result = true;
+            $this->result = $this->user_row['ban'] == '0';
         }
     }
 
