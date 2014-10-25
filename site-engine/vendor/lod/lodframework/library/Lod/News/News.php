@@ -111,4 +111,50 @@ class News extends AbstractNews {
         $news_item->allocateById($news_id);
         return $news_item->isEmpty() ? null : $news_item;
     }
+
+    public function sendNotificationToUsers($text = "Новая новость", $news_id = 0) {
+        $host = $_SERVER['HTTP_HOST'];
+
+        $result = $this->db->query("SELECT * FROM `users` WHERE `confirmed` = '1' AND `admin_confirmed` = '1' AND `ban` = '0'");
+        while ($row = $result->fetch_array(MYSQL_ASSOC)) {
+            $to = $row['email'];
+            $subject = '[League Of Developers] Новая запись на стене Лиги';
+
+            $message = '
+            <html>
+            <head>
+                <title>League Of Developers. Новая запись на стене Лиги</title>
+            </head>
+            <body>
+                <div style="max-width: 600px;margin: 0 auto;">
+                    <div style="border-radius: 4px;border: 1px solid rgba(0, 0, 0, 0.06);background: #F0F0F0;">
+                        <div style="background: #FAFAFA;padding: 15px;z-index: 10000;border-bottom: 1px solid #DCDCDC;margin-bottom: 15px;">
+                            <a href="http://{2}/" style="display: block;">
+                                <img alt="League Of Developers" src="http://{2}/st/img/lod-logo-horizontal.png" width="200">
+                            </a>
+                        </div>
+                        <div style="padding: 15px; background-color: #C9E6F4; border-radius: 4px; border: 1px solid #b9d6e4;margin: 15px;">
+                            Новая запись на стене Лиги:<br>
+                            «{5}»
+                            <br><br>
+                            Для того, чтобы посмотреть новость полностью, пройдите по ссылке:
+                            <br><br>
+                            <a href="http://{2}/news?id={4}" style="color: #777;">http://{2}/news?id={4}</a>
+                        </div>
+                    </div>
+                    <div style="text-align: center;color: #D2D2D2;">League Of Developers - {3}</div>
+                </div>
+            </body>
+            </html>
+            ';
+            $message = str_replace(array('{0}', '{1}', '{2}', '{3}', '{4}', '{5}'), array(1, 2, $host, date('Y'), $news_id, $text), $message);
+
+            $headers  = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+            $headers .= 'From: League Of Developers <notify@lod.misis.ru>' . "\r\n";
+
+            mail($to, $subject, $message, $headers);
+        }
+    }
 }

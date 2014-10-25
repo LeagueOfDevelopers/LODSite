@@ -58,6 +58,10 @@ return array(
             'admin' => array(
                 'version' => '1',
                 'file' => '/st/js/admin/admin.js'
+            ),
+            'feedback' => array(
+                'version' => '1',
+                'file' => '/st/js/feedback/feedback.js'
             )
         ),
         'css' => array(

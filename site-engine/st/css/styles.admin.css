@@ -169,3 +169,9 @@ nav:hover { }
 .comment-attachments {
     padding: 0 0 13px 0;
 }
+
+.news-date {
+    margin: 10px 1px;
+    color: #909090;
+    font-size: 12px;
+}

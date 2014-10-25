@@ -9,7 +9,10 @@ return array(
         'feedback' => 'Feedback',
         'about' => 'About',
         'news' => 'News',
-        'adminium' => 'Admin'
+        'adminium' => 'Admin',
+        'forum' => 'Forum',
+        'portfolio' => 'Portfolio',
+        'orders' => 'Orders'
     ),
     'module_options' => array(
         'module_path' => '/module'

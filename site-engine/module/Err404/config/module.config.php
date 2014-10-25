@@ -19,6 +19,15 @@ return array(
                             'value' => 'index/404'
                         )
                     )
+                ),
+                'error' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/error'
+                        )
+                    )
                 )
             )
         ),

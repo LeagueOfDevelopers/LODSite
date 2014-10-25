@@ -6,16 +6,12 @@
 $news_item = $this->getData()['news_item'];
 ?>
 <div class="news-content">
-    <?php if ($news_item->getPhoto()): ?>
-    <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <a class="thumbnail" style="max-width: 100%;">
-                <img src="<?=$news_item->getPhoto()?>" alt="<?=$news_item->getTitle()?>">
-            </a>
-        </div>
-    </div>
-    <?php endif; ?>
-    <div class="lead" style="white-space: pre-line; overflow: hidden; text-align: justify;">
+    <div class="lead" style="white-space: pre-line; text-align: justify;">
+        <?php if ($news_item->getPhoto()): ?>
+            <div style="float: left; margin: 0 10px 5px 0; max-width: 50%;">
+                <img src="<?=$news_item->getPhoto()?>" alt="<?=$news_item->getTitle()?>" style="width: 100%;" />
+            </div>
+        <?php endif; ?>
         <?=$news_item->getFormattedText()?>
     </div>
 
