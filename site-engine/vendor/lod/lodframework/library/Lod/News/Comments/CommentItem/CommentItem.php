@@ -69,7 +69,7 @@ class CommentItem implements CommentItemInterface {
             '/\s\-\-\s/i'
         );
         $replacements = array(
-            " <div class=\"row\" style='margin: 10px 0'><div class=\"col-xs-6 col-md-6\"><a class=\"thumbnail\" style=\"max-width: 100%; margin-bottom: 0;\"><img src=\"$1\"></a></div></div> ",
+            " <div class=\"row\" style='margin: 10px 0'><div class=\"col-xs-6 col-md-6\" style='padding-left: 0;'><a class=\"thumbnail\" style=\"max-width: 100%; margin-bottom: 0;\"><img src=\"$1\"></a></div></div> ",
             " <a target=\"_blank\" href=\"$1\">$1</a> ",
             " — "
         );

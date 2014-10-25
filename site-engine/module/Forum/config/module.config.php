@@ -22,19 +22,19 @@ return array(
                         )
                     )
                 ),
-                'about' => array(
+                'forum' => array(
                     'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
-                            'value' => 'index/main/about'
+                            'value' => 'index/main/forum'
                         )
                     )
                 )
             )
         ),
         'replace' => array(
-            'title' => 'О нас | League Of Developers',
+            'title' => 'Форум | League Of Developers',
             'common_views' => array() 
         )
     )

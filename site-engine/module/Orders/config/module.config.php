@@ -22,19 +22,19 @@ return array(
                         )
                     )
                 ),
-                'about' => array(
+                'orders' => array(
                     'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
-                            'value' => 'index/main/about'
+                            'value' => 'index/main/orders'
                         )
                     )
                 )
             )
         ),
         'replace' => array(
-            'title' => 'О нас | League Of Developers',
+            'title' => 'Стол заказов | League Of Developers',
             'common_views' => array() 
         )
     )

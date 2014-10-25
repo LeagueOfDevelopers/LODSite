@@ -1,10 +1,8 @@
 <?php
 
-namespace Feedback\Controller;
+namespace Orders\Controller;
 
-use Feedback\Model\IndexModel;
-use Feedback\Model\NewModel;
-use Lod\Core\Application;
+use Orders\Model\IndexModel;
 use Lod\Core\Controller\AbstractController;
 use Lod\Core\View\View;
 
@@ -16,16 +14,9 @@ class Controller extends AbstractController {
         $model = new IndexModel();
         $data = $model->main()->getData();
 
-        $view = new View('Feedback');
+        $view = new View('Orders');
         $view->setContent('content');
         $view->setData($data);
         $view->generate();
-    }
-
-    public function newAction() {
-        $model = new NewModel();
-        $data = $model->main()->getData();
-        Application::setContentType('json');
-        echo json_encode($data);
     }
 }

@@ -22,19 +22,19 @@ return array(
                         )
                     )
                 ),
-                'about' => array(
+                'portfolio' => array(
                     'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
-                            'value' => 'index/main/about'
+                            'value' => 'index/main/portfolio'
                         )
                     )
                 )
             )
         ),
         'replace' => array(
-            'title' => 'О нас | League Of Developers',
+            'title' => 'Портфолио Лиги Разработчиков | League Of Developers',
             'common_views' => array() 
         )
     )

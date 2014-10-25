@@ -84,6 +84,10 @@ var Admin = {
         }
     },
     deleteNews: function(news_id) {
+        var result = confirm("Вы действительно хотите удалить эту новость?");
+        if (!result) {
+            return;
+        }
         var obj = {};
             obj.url = "http://" + window.location.host + "/adminium/delete_news";
             obj.data = {

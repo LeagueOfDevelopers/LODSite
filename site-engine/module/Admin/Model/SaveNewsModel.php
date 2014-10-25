@@ -5,6 +5,7 @@ namespace Admin\Model;
 use Lod\Core\Application;
 use Lod\Core\Model\AbstractModel;
 use Lod\News\News;
+use Lod\News\NewsItem;
 use Lod\User\Authorization\CheckAuthorization;
 use Lod\User\User;
 
@@ -22,6 +23,10 @@ class SaveNewsModel extends AbstractModel {
 
             $news = new News($this->getLodDb());
             $news->addNewsItem($data, $user->getId());
+
+            /** @var NewsItem $news_item */
+            $news_item = $news->getNews(1)[0];
+            $news->sendNotificationToUsers($news_item->getPreviewText(), $news_item->getId());
 
             $this->setData(array(
                 'result' => true
