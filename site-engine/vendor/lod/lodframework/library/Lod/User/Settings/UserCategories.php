@@ -5,7 +5,7 @@ namespace Lod\User\Settings;
 class UserCategories {
 
     /* Don't change the access level of users. */
-    private static $categories = array(
+    public static $categories = array(
         'default' => array(
             'color' => '#ccc',
             'value' => 'Не определено'

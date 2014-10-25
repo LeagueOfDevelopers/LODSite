@@ -252,6 +252,16 @@ class User implements UserInterface {
         $this->table_row['email'] = $email;
     }
 
+    public function setAccessLevel($level) {
+        $user_id = $this->getId();
+        if (!is_numeric($user_id)) {
+            return;
+        }
+        $this->db->query("UPDATE `users` SET `access_level` = ?i WHERE `id` = ?i", $level, $user_id);
+        $this->db->query("COMMIT");
+        $this->table_row['access_level'] = $level;
+    }
+
     public function setPasswordHash($password_hash) {
         $user_id = $this->getId();
         if (!is_numeric($user_id)) {
@@ -485,5 +495,35 @@ class User implements UserInterface {
             $mod %= 10;
             return $word.$array_of_suf_dozen[$mod];
         }
+    }
+
+    public function setBan() {
+        $user_id = $this->getId();
+        if (!is_numeric($user_id)) {
+            return;
+        }
+        $this->db->query("UPDATE `users` SET `ban` = '1' WHERE `id` = ?i", $user_id);
+        $this->db->query("COMMIT");
+        $this->table_row['ban'] = '1';
+    }
+
+    public function unBan() {
+        $user_id = $this->getId();
+        if (!is_numeric($user_id)) {
+            return;
+        }
+        $this->db->query("UPDATE `users` SET `ban` = '0' WHERE `id` = ?i", $user_id);
+        $this->db->query("COMMIT");
+        $this->table_row['ban'] = '0';
+    }
+
+    public function setAdminConfirm() {
+        $user_id = $this->getId();
+        if (!is_numeric($user_id)) {
+            return;
+        }
+        $this->db->query("UPDATE `users` SET `admin_confirmed` = '1' WHERE `id` = ?i", $user_id);
+        $this->db->query("COMMIT");
+        $this->table_row['admin_confirmed'] = '1';
     }
 }

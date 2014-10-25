@@ -51,6 +51,7 @@ interface UserInterface {
     function isOnline();
 
     function setEmail($email);
+    function setAccessLevel($level);
     function setPasswordHash($hash);
     function setFirstName($first_name);
     function setLastName($second_name);
@@ -68,4 +69,7 @@ interface UserInterface {
     function updateRecentActivtyTime();
     function setAbout($text);
     function setPhoto($ref);
+    function setBan();
+    function unBan();
+    function setAdminConfirm();
 }

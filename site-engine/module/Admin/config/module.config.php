@@ -6,7 +6,12 @@ return array(
         'news' => 'news',
         'save_news' => 'saveNews',
         'delete_news' => 'deleteNews',
-        'edit_news' => 'editNews'
+        'edit_news' => 'editNews',
+        'users' => 'users',
+        'save_user_category' => 'saveUserCategory',
+        'signin_by_user' => 'signInByUser',
+        'toggle_ban' => 'toggleBan',
+        'admin_confirm' => 'adminConfirm'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -99,6 +104,68 @@ return array(
                         array(
                             'range' => 'default',
                             'value' => 'news/edit_news/form'
+                        )
+                    )
+                ),
+                'common.menu' => array(
+                    'authorized_mode' => true,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => array(8, 9),
+                            'value' => 'common/menu.manager'
+                        ),
+                        array(
+                            'range' => array(10, 10),
+                            'value' => 'common/menu.admin'
+                        ),
+                        array(
+                            'range' => 'default',
+                            'value' => 'common/menu'
+                        )
+                    )
+                ),
+                'users.content' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'users/content/content'
+                        )
+                    )
+                ),
+                'users.users_list' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'users/content/users_list'
+                        )
+                    )
+                ),
+                'users.pagination' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'users/pagination/pagination'
+                        )
+                    )
+                ),
+                'users.edit' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'users/edit/form'
+                        )
+                    )
+                ),
+                'users.new_users' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'users/content/new_users'
                         )
                     )
                 )

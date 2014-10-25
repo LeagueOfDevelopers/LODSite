@@ -2,11 +2,16 @@
 
 namespace Admin\Controller;
 
+use Admin\Model\AdminConfirmModel;
 use Admin\Model\DeleteNewsModel;
 use Admin\Model\EditNewsModel;
 use Admin\Model\IndexModel;
 use Admin\Model\NewsModel;
 use Admin\Model\SaveNewsModel;
+use Admin\Model\SaveUserCategoryModel;
+use Admin\Model\SignInByUserModel;
+use Admin\Model\ToggleBanModel;
+use Admin\Model\UsersModel;
 use Lod\Core\Application;
 use Lod\Core\Controller\AbstractController;
 use Lod\Core\View\View;
@@ -18,6 +23,7 @@ class Controller extends AbstractController {
     public function indexAction() {
         $model = new IndexModel();
         $data = $model->main()->getData();
+        $data['menu_flag'] = 'index';
 
         $view = new View('Admin');
         $view->setContent('content');
@@ -28,6 +34,7 @@ class Controller extends AbstractController {
     public function newsAction() {
         $model = new NewsModel();
         $data = $model->main()->getData();
+        $data['menu_flag'] = 'news';
 
         $view = new View('Admin');
         $view->setTitle('Новости | League Of Developers');
@@ -52,6 +59,46 @@ class Controller extends AbstractController {
 
     public function editNewsAction() {
         $model = new EditNewsModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function usersAction() {
+        $model = new UsersModel();
+        $data = $model->main()->getData();
+        $data['menu_flag'] = 'users';
+
+        $view = new View('Admin');
+        $view->setTitle('Пользователи | League Of Developers');
+        $view->setContent('users.content');
+        $view->setData($data);
+        $view->generate();
+    }
+
+    public function saveUserCategoryAction() {
+        $model = new SaveUserCategoryModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function signInByUserAction() {
+        $model = new SignInByUserModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function toggleBanAction() {
+        $model = new ToggleBanModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function adminConfirmAction() {
+        $model = new AdminConfirmModel();
         $data = $model->main()->getData();
         Application::setContentType('json');
         echo json_encode($data);
