@@ -41,6 +41,7 @@ $user = $data['user'];
                         <li><a href="/profile">Профиль</a></li>
                         <li class="divider"></li>
                         <li><a href="/profile/edit">Редактировать профиль</a></li>
+                        <li><a href="/profile/changePassword">Сменить пароль</a></li>
                         <li class="divider"></li>
                         <li><a href="/user/logout">Выход</a></li>
                     </ul>

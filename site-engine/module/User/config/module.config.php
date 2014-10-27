@@ -9,7 +9,11 @@ return array(
         'signup' => 'signUp',
         'checklogin' => 'checkLogin',
         'checkemail' => 'checkEmail',
-        'confirm' => 'confirmAccount'
+        'confirm' => 'confirmAccount',
+        'resetPassword' => 'resetPassword',
+        'act_reset_password' => 'actResetPassword',
+        'new_password' => 'newPassword',
+        'set_new_password' => 'setNewPassword'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -67,6 +71,60 @@ return array(
                         array(
                             'range' => 'default',
                             'value' => 'register.confirmed/register.confirmed'
+                        )
+                    )
+                ),
+                'reset_password.main' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'reset_password/main'
+                        )
+                    )
+                ),
+                'reset_password.navigation' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'reset_password/navigation'
+                        )
+                    )
+                ),
+                'reset_password.form' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'reset_password/form'
+                        )
+                    )
+                ),
+                'new_password.main' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'new_password/main'
+                        )
+                    )
+                ),
+                'new_password.navigation' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'new_password/navigation'
+                        )
+                    )
+                ),
+                'new_password.form' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'new_password/form'
                         )
                     )
                 )

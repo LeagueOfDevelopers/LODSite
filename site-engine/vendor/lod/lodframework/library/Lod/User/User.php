@@ -63,6 +63,10 @@ class User implements UserInterface {
         return $this->check_auth && $this->table_row ? $this->check_auth->getResult() : false;
     }
 
+    public function isEmpty() {
+        return empty($this->table_row);
+    }
+
     public function getId() {
         return $this->table_row['id'];
     }
@@ -238,6 +242,10 @@ class User implements UserInterface {
         return !empty($this->table_row['photo']) ? $this->table_row['photo'] : "http://{$_SERVER['HTTP_HOST']}/st/img/noimage.png";
     }
 
+    public function getResetPasswordKey() {
+        return !empty($this->table_row['password_reset_key']) ? $this->table_row['password_reset_key'] : null;
+    }
+
     public function isBan() {
         return intval($this->table_row['ban']) != 0;
     }
@@ -260,6 +268,10 @@ class User implements UserInterface {
         $this->db->query("UPDATE `users` SET `access_level` = ?i WHERE `id` = ?i", $level, $user_id);
         $this->db->query("COMMIT");
         $this->table_row['access_level'] = $level;
+    }
+
+    public function changePassword($password) {
+        $this->setPasswordHash(md5(md5($password.';')));
     }
 
     public function setPasswordHash($password_hash) {
@@ -525,5 +537,15 @@ class User implements UserInterface {
         $this->db->query("UPDATE `users` SET `admin_confirmed` = '1' WHERE `id` = ?i", $user_id);
         $this->db->query("COMMIT");
         $this->table_row['admin_confirmed'] = '1';
+    }
+
+    public function setResetPasswordKey($key) {
+        $user_id = $this->getId();
+        if (!is_numeric($user_id)) {
+            return;
+        }
+        $this->db->query("UPDATE `users` SET `password_reset_key` = ?s WHERE `id` = ?i", $key, $user_id);
+        $this->db->query("COMMIT");
+        $this->table_row['password_reset_key'] = $key;
     }
 }

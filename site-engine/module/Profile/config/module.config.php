@@ -5,7 +5,9 @@ return array(
         'index' => 'index',
         'edit' => 'edit',
         'save_modified' => 'saveModified',
-        'upload_image' => 'uploadProfileImage'
+        'upload_image' => 'uploadProfileImage',
+        'changePassword' => 'changePassword',
+        'save_new_password' => 'saveNewPassword'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -155,6 +157,33 @@ return array(
                         array(
                             'range' => 'default',
                             'value' => 'edit/states/success'
+                        )
+                    )
+                ),
+                'change_password.main' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'change_password/main'
+                        )
+                    )
+                ),
+                'change_password.navigation' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'change_password/navigation'
+                        )
+                    )
+                ),
+                'change_password.form' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'change_password/form'
                         )
                     )
                 )

@@ -46,7 +46,7 @@
                                 </div>
                             </li>
                             <li class="divider"></li>
-                            <li><button type="submit" onclick="User.signInStart(); return !1;" class="btn btn-default">Войти</button> <a style="margin-left: 8px;" href="#">Забыли пароль?</a></li>
+                            <li><button type="submit" onclick="User.signInStart(); return !1;" class="btn btn-default">Войти</button> <a style="margin-left: 8px;" href="/user/resetPassword">Забыли пароль?</a></li>
                             <li></li>
                         </form></ul>
                 </li>
