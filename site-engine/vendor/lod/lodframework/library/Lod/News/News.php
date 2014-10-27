@@ -75,7 +75,7 @@ class News extends AbstractNews {
 
     public function getPagination($cur_page, $per_page) {
         $count = $this->getCount();
-        $pages = intval($count / $per_page) + 1;
+        $pages = intval($count / $per_page) + intval($count % $per_page != 0);
         $start = $cur_page - 4 < 1 ? 1 : $cur_page - 4;
         $finish = $start + 8 > $pages ? $pages : $start + 8;
         $start = $finish - 8 < 1 ? $start : $finish - 8;

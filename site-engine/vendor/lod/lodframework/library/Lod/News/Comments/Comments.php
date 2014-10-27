@@ -30,6 +30,26 @@ class Comments {
         return $this;
     }
 
+    public function getAllComments($count = 10, $sort = DESC) {
+        $sort_type = $sort == DESC ? 'DESC' : 'ASC';
+        $result = $this->db->query(
+            "SELECT news.title AS news_title,
+            comments.*
+            FROM `comments`
+            LEFT JOIN news ON comments.news_id = news.id
+            WHERE comments.`deleted` = '0'
+            ORDER BY `id` $sort_type
+            LIMIT 0, ?i",
+            $count
+        );
+        $comments_list = array();
+        while ($row = $result->fetch_array(MYSQL_ASSOC)) {
+            $comment = new CommentItem($this->db, $row);
+            array_push($comments_list, $comment);
+        }
+        return $comments_list;
+    }
+
     public function getComments($sort = DESC) {
         $sort_type = $sort == DESC ? 'DESC' : 'ASC';
         $result = $this->db->query(
