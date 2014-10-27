@@ -4,13 +4,17 @@ namespace User\Controller;
 
 use Lod\Core\Application;
 use Lod\Core\View\View;
+use User\Model\ActResetPasswordModel;
 use User\Model\AuthModel;
 use Lod\Core\Controller\AbstractController;
 use User\Model\CheckEmailModel;
 use User\Model\CheckLoginModel;
 use User\Model\ConfirmAccountModel;
 use User\Model\LogoutModel;
+use User\Model\NewPasswordModel;
 use User\Model\RegisterModel;
+use User\Model\ResetPasswordModel;
+use User\Model\SetNewPasswordModel;
 use User\Model\SignUpModel;
 
 class Controller extends AbstractController {
@@ -76,5 +80,41 @@ class Controller extends AbstractController {
             Application::toRoute("/");
         }
         Application::stop();
+    }
+
+    public function resetPasswordAction() {
+        $model = new ResetPasswordModel();
+        $data = $model->main()->getData();
+
+        $view = new View('User');
+        $view->setTitle("Сброс пароля | League Of Developers");
+        $view->setContent('reset_password.main');
+        $view->setData($data);
+        $view->generate();
+    }
+
+    public function actResetPasswordAction() {
+        $model = new ActResetPasswordModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function newPasswordAction() {
+        $model = new NewPasswordModel();
+        $data = $model->main()->getData();
+
+        $view = new View('User');
+        $view->setTitle("Новый пароль | League Of Developers");
+        $view->setContent('new_password.main');
+        $view->setData($data);
+        $view->generate();
+    }
+
+    public function setNewPasswordAction() {
+        $model = new SetNewPasswordModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
     }
 }

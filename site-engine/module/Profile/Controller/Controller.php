@@ -3,11 +3,13 @@
 namespace Profile\Controller;
 
 use Lod\Core\Application;
+use Profile\Model\ChangePasswordModel;
 use Profile\Model\EditModel;
 use Profile\Model\IndexModel;
 use Lod\Core\Controller\AbstractController;
 use Lod\Core\View\View;
 use Profile\Model\SaveModifiedModel;
+use Profile\Model\SaveNewPasswordModel;
 use Profile\Model\UploadProfileImageModel;
 
 class Controller extends AbstractController {
@@ -48,6 +50,24 @@ class Controller extends AbstractController {
 
     public function uploadProfileImageAction() {
         $model = new UploadProfileImageModel();
+        $data = $model->main()->getData();
+        Application::setContentType('json');
+        echo json_encode($data);
+    }
+
+    public function changePasswordAction() {
+        $model = new ChangePasswordModel();
+        $data = $model->main()->getData();
+
+        $view = new View('Profile');
+        $view->setTitle('Смена пароля | League Of Developers');
+        $view->setContent('change_password.main');
+        $view->setData($data);
+        $view->generate();
+    }
+
+    public function saveNewPasswordAction() {
+        $model = new SaveNewPasswordModel();
         $data = $model->main()->getData();
         Application::setContentType('json');
         echo json_encode($data);
