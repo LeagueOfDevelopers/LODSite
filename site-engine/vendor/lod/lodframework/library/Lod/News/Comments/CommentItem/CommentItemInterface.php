@@ -12,6 +12,7 @@ interface CommentItemInterface {
 
     function getId();
     function getUserId();
+    function getNewsId();
     function getText();
     function getUserObject();
     function getTime();

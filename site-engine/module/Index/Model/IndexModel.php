@@ -4,6 +4,7 @@ namespace Index\Model;
 
 use Lod\Core\Application;
 use Lod\Core\Model\AbstractModel;
+use Lod\News\Comments\Comments;
 use Lod\News\News;
 use Lod\User\Authorization\CheckAuthorization;
 use Lod\User\User;
@@ -21,17 +22,21 @@ class IndexModel extends AbstractModel {
         if ($page < 1) {
             $page = 1;
         }
-        $count = 10;
+        $count = 5;
         $offset = $count * ($page - 1);
 
         $news_object = new News($this->getLodDb());
         $news_list = $news_object->getNews($count, $offset);
-        $pagination = $news_object->getPagination($page, News::$PER_PAGE);
+        $pagination = $news_object->getPagination($page, $count);
+
+        $comments = new Comments($this->getLodDb());
+        $comments_list = $comments->getAllComments(3);
 
         $this->setData(array(
             'user' => $user,
             'news' => $news_list,
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'comments_list' => $comments_list
         ));
 
         return $this;

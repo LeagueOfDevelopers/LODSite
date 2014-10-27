@@ -10,5 +10,11 @@ function strip_tags(str){ return str.replace(/<\/?[^>]+>/gi, ''); }
 $(document).ready(function () {
 	$('[data-toggle="offcanvas"]').click(function () { $('.row-offcanvas').toggleClass('active') });
 	$('body').tooltip({ selector: '[data-toggle="tooltip"]' });
+    var items = $('.item-limit');
+    if (items) {
+        setTimeout(function() {
+            items.animate({maxHeight: '500px', opacity: 1}, 200);
+        }, 300);
+    }
 });
 

@@ -53,7 +53,7 @@ return array(
                     'authorized_mode' => true,
                     'allocated_paths' => array(
                         array(
-                            'range' => 'default',
+                            'range' => array(1, 10),
                             'value' => 'index/right_block/right_block'
                         )
                     )

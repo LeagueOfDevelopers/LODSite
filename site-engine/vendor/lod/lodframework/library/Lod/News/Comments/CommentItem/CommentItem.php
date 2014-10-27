@@ -58,6 +58,10 @@ class CommentItem implements CommentItemInterface {
         return $this->row ? $this->row['user_id'] : 0;
     }
 
+    public function getNewsId() {
+        return $this->row ? $this->row['news_id'] : 0;
+    }
+
     public function getText() {
         return $this->row ? strip_tags($this->row['text']) : null;
     }
