@@ -64,6 +64,7 @@ nav:hover { opacity: 1.0; }
 	background-image: none;
 	background-color: #FCFCFC;
 	border: #ECECEC solid 1px;
+    box-shadow: none;
 }
 .btn-default:hover {
 	background-image: none;
@@ -74,14 +75,23 @@ nav:hover { opacity: 1.0; }
 	background-image: none;
 	background-color: #5C97BF;
 	border: #5C97BF solid 1px;
+    box-shadow: none;
+    transition: all .1s ease;
 }
 .btn-primary:hover {
 	background-image: none;
 	background-color: #59ABE3;
 	border: #59ABE3 solid 1px;
 }
+.btn-primary:active {
+    background-color: #5c90b8;
+}
 
-.badge { font-weight: normal; text-shadow: none; }
+.badge {
+    font-weight: normal; text-shadow: none;
+    color: #007BD5 !important;
+    background-color: rgba(29, 138, 217, 0.23) !important;
+}
 .media { border-bottom: #ECF0F1 solid 1px; }
 
 .alert-danger { background-image: none; }

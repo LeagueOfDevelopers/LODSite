@@ -20,15 +20,17 @@ $user = $data['user'];
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/">Главная</a></li>
-                <li><a href="/portfolio">Портфолио</a></li>
+                <!--<li><a href="/portfolio">Портфолио</a></li>-->
                 <li><a href="/orders">Стол заказов</a></li>
-                <li class="dropdown">
+                <li><a href="/about">О нас</a></li>
+                <li><a href="/feedback">Обратная связь</a></li>
+                <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Разное <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/about">О нас</a></li>
                         <li><a href="/feedback">Обратная связь</a></li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -44,7 +46,7 @@ $user = $data['user'];
                         <li><a href="/user/logout">Выход</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search" style="margin-right: 3px;"></span> Поиск</a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
@@ -55,7 +57,7 @@ $user = $data['user'];
                             </form>
                         </li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>

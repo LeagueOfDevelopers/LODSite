@@ -13,7 +13,7 @@ $(document).ready(function () {
     var items = $('.item-limit');
     if (items) {
         setTimeout(function() {
-            items.animate({maxHeight: '500px', opacity: 1}, 200);
+            items.animate({maxHeight: '344px', opacity: 1}, 200);
         }, 300);
     }
 });

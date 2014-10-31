@@ -62,6 +62,10 @@ return array(
             'feedback' => array(
                 'version' => '1',
                 'file' => '/st/js/feedback/feedback.js'
+            ),
+            'orders' => array(
+                'version' => '1',
+                'file' => '/st/js/orders/orders.js'
             )
         ),
         'css' => array(
