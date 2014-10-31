@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Авторизация / Регистрация</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Переключить навигацию</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="right" title="Лига Разработчиков"><img src="images/lodlogo.png" alt="LoD"></a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Главная</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Форум <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Главная форума</a></li>
+						<li><a href="#">Раздел 1</a></li>
+						<li><a href="#">Раздел 2</a></li>
+						<li><a href="#">Раздел 3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Портфолио</a></li>
+				<li><a href="#">Стол заказов</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Разное <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">О нас</a></li>
+						<li><a href="#">Команда</a></li>
+						<li><a href="#">Обратная связь</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Войти <span class="caret"></span></a>
+					<ul class="dropdown-menu dropdown-menu-login" role="menu"><form class="navbar-form" role="login">
+						<li role="presentation" class="dropdown-header">Логин</li>
+						<li>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+								<input type="text" class="form-control" placeholder="Логин">
+							</div>
+						</li>
+						<li role="presentation" class="dropdown-header">Пароль</li>
+						<li>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+								<input type="password" class="form-control" placeholder="Пароль">
+							</div>
+						</li>
+						<li class="divider"></li>
+						<li><button type="submit" class="btn btn-default">Войти</button> <a href="#">Забыли пароль?</a></li>
+						<li></li>
+					</form></ul>
+				</li>
+				<li><a href="#">Регистрация</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">proFox <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Профиль</a></li>
+						<li><a href="#">Сообщения <span class="badge">0 новых</span></a></li>
+						<li class="divider"></li>
+						<li><a href="#">Добавить новость</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Редактировать</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Выход</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Поиск</a>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<form class="navbar-form" role="search">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Search">
+								</div>
+							</form>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+
+	<ol class="breadcrumb">
+		<li><a href="#">Главная</a></li>
+		<li class="active">Авторизация / Регистрация</li>
+	</ol>
+
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-6">
+
+			<div class="page-header">
+				<h1>Авторизация <small></small></h1>
+			</div>
+
+			<form class="form-horizontal" id="loginForm" method="post" action="">
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">Логин</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+							<input type="text" class="form-control" name="login" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">Пароль</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+							<input type="password" class="form-control" name="password" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label"></label>
+					<div class="col-lg-5">
+						<button type="submit" class="btn btn-primary">Войти</button>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label"></label>
+					<div class="col-lg-5">
+						<a href="#">Забыли пароль?</a>
+					</div>
+				</div>
+			</form>
+
+		</div>
+
+		<div class="col-xs-6">
+
+			<div class="page-header">
+				<h1>Регистрация <small></small></h1>
+			</div>
+
+			<form class="form-horizontal" id="registerForm" method="post" action="">
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">Логин</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+							<input type="text" class="form-control" name="login" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">Имя</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
+							<input type="text" class="form-control" name="username" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">E-mail</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+							<input type="text" class="form-control" name="email" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">Пароль</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+							<input type="password" class="form-control" name="password" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label">Пароль еще раз</label>
+					<div class="col-lg-5">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+							<input type="password" class="form-control" name="passwordagain" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label"></label>
+					<div class="col-lg-5">
+						<a href="#">Правила пользования сайтом</a>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-lg-3 control-label"></label>
+					<div class="col-lg-5">
+						<button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+	</div>
+
+	<div class="footer">
+		League of Developers - 2014. All rights reserved.
+		<div class="pull-right">
+			<ul class="nav nav-pills">
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrapValidator.min.js"></script>
+<script src="js/library.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#registerForm').bootstrapValidator({
+		message: 'This value is not valid',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			login: {
+				message: 'Неправильно введен логин',
+				validators: {
+					notEmpty: {
+						message: 'Поле является обязательным и не может быть пустым'
+					},
+					stringLength: {
+						min: 3,
+						max: 16,
+						message: 'Имя должен быть больше 3-х и меньше 16-ти символов'
+					},
+					regexp: {
+						regexp: /^[a-zA-Z0-9_]+$/,
+						message: 'Логин может состоять только из английского алфавита, цифр и знака подчеркивания'
+					}
+				}
+			},
+			username: {
+				message: 'Неправильно введено имя',
+				validators: {
+					notEmpty: {
+						message: 'Поле является обязательным и не может быть пустым'
+					},
+					stringLength: {
+						min: 6,
+						max: 30,
+						message: 'Имя должно быть больше 3-х и меньше 30-ти символов'
+					},
+					regexp: {
+						regexp: /^[а-яА-Я ]+$/,
+						message: 'Имя может состоять только из русского алфавита'
+					}
+				}
+			},
+			email: {
+				validators: {
+					notEmpty: {
+						message: 'Поле является обязательным и не может быть пустым'
+					},
+					emailAddress: {
+						message: 'Неправильно указали e-mail адрес'
+					}
+				}
+			},
+			password: {
+				validators: {
+					notEmpty: {
+						message: 'Введите пароль'
+					},
+					stringLength: {
+						min: 6,
+						message: 'Не меньше 6-ти символов'
+					}
+				}
+			},
+			passwordagain: {
+				validators: {
+					notEmpty: {
+						message: 'Введите повторно пароль'
+					},
+					stringLength: {
+						min: 6,
+						message: 'Не меньше 6-ти символов'
+					}
+				}
+			}
+		}
+	});
+	$('#loginForm').bootstrapValidator({
+		message: 'This value is not valid',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			login: {
+				message: 'Неправильно введен логин',
+				validators: {
+					notEmpty: {
+						message: 'Поле является обязательным и не может быть пустым'
+					},
+					stringLength: {
+						min: 3,
+						max: 16,
+						message: 'Имя должен быть больше 3-х и меньше 16-ти символов'
+					},
+					regexp: {
+						regexp: /^[a-zA-Z0-9_]+$/,
+						message: 'Логин может состоять только из английского алфавита, цифр и знака подчеркивания'
+					}
+				}
+			},
+			password: {
+				validators: {
+					notEmpty: {
+						message: 'Введите пароль'
+					},
+					stringLength: {
+						min: 6,
+						message: 'Не меньше 6-ти символов'
+					}
+				}
+			}
+		}
+	});
+});
+</script>
+
+</body>
+</html>

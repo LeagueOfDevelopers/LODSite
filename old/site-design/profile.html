@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Профиль пользователя</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Переключить навигацию</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="right" title="Лига Разработчиков"><img src="images/lodlogo.png" alt="LoD"></a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Главная</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Форум <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Главная форума</a></li>
+						<li><a href="#">Раздел 1</a></li>
+						<li><a href="#">Раздел 2</a></li>
+						<li><a href="#">Раздел 3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Портфолио</a></li>
+				<li><a href="#">Стол заказов</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Разное <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">О нас</a></li>
+						<li><a href="#">Команда</a></li>
+						<li><a href="#">Обратная связь</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Войти <span class="caret"></span></a>
+					<ul class="dropdown-menu dropdown-menu-login" role="menu"><form class="navbar-form" role="login">
+						<li role="presentation" class="dropdown-header">Логин</li>
+						<li>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+								<input type="text" class="form-control" placeholder="Логин">
+							</div>
+						</li>
+						<li role="presentation" class="dropdown-header">Пароль</li>
+						<li>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+								<input type="password" class="form-control" placeholder="Пароль">
+							</div>
+						</li>
+						<li class="divider"></li>
+						<li><button type="submit" class="btn btn-default">Войти</button> <a href="#">Забыли пароль?</a></li>
+						<li></li>
+					</form></ul>
+				</li>
+				<li><a href="#">Регистрация</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">proFox <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Профиль</a></li>
+						<li><a href="#">Сообщения <span class="badge">0 новых</span></a></li>
+						<li class="divider"></li>
+						<li><a href="#">Добавить новость</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Редактировать</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Выход</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Поиск</a>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<form class="navbar-form" role="search">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Search">
+								</div>
+							</form>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-9">
+			<p class="pull-right visible-xs">
+				<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Показать колонку</button>
+			</p>
+
+			<ol class="breadcrumb">
+				<li><a href="#">Главная</a></li>
+				<li><a href="#">Пользователи</a></li>
+				<li class="active">Соколов Антон</li>
+			</ol>
+
+			<div class="page-header">
+				<h1>Соколов Антон <small>#1001353</small></h1>
+			</div>
+
+			<ul class="nav nav-pills">
+				<li><a href="#">Написать ЛС</a></li>
+				<li><a href="#">Написать E-mail</a></li>
+				<li><a href="#">Редактировать</a></li>
+			</ul><div class="margin20"></div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Основная информация</div>
+
+				<table class="table">
+					<tbody>
+						<tr>
+							<td><b>Логин</b></td>
+							<td>proFox</td>
+						</tr>
+						<tr>
+							<td><b>Имя</b></td>
+							<td>Соколов Антон</td>
+						</tr>
+						<tr>
+							<td><b>Дата регистрации</b></td>
+							<td>03.10.14 в 20:34</td>
+						</tr>
+						<tr>
+							<td><b>Последний раз был</b></td>
+							<td>3 дня и 13 часов назад</td>
+						</tr>
+						<tr>
+							<td><b>Количество просмотров</b></td>
+							<td>8356</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">О себе</div>
+				<div class="panel-body">
+					Я очень классный. И скромный.
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="images/noimage.png" alt="" width="100" height="100">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="images/noimage.png" alt="" width="100" height="100">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="images/noimage.png" alt="" width="100" height="100">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="images/noimage.png" alt="" width="100" height="100">
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
+			<div class="page-header">
+				<h1><small>Последние посетители</small></h1>
+			</div>
+
+			<ul class="list-group">
+				<li class="list-group-item"><a href="#">Соколов Антон</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Иванов Иван</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Порошенко Петр</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Путин В. В.</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Александер Белов</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Влад Левицкий</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Каширина Анжела</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Кличко Виталий</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Мизулина Елена</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+				<li class="list-group-item"><a href="#">Голополосов Максим</a> <span class="badge" data-toggle="tooltip" data-placement="left" title="04.10.14 в 13:57">сегодня</span></li>
+			</ul>
+
+		</div>
+	</div>
+
+	<div class="footer">
+		League of Developers - 2014. All rights reserved.
+		<div class="pull-right">
+			<ul class="nav nav-pills">
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+				<li><a href="#">Ссылка</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/library.js"></script>
+</body>
+</html>
