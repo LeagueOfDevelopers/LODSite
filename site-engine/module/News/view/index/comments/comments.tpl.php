@@ -34,6 +34,9 @@ $comments = $news_item->getCommentsObject()->getComments(ASC);
                     <h4 class="media-heading">
                         <a target="_blank" href="/profile?id=<?=$comment->getUserId()?>">
                             <?=$user->getViewName()?></a>
+                        <?php if ($user->isOnline()):?>
+                            <span data-toggle="tooltip" data-placement="right" title="Online" class="online-pointer"></span>
+                        <?php endif; ?>
                         <small>
                             <span>написал<?=($user->getSex() == 'b' ? '' : 'a')?></span>
                             <?php if ($parent_flag): ?>

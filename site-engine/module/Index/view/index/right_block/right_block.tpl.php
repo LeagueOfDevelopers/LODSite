@@ -25,6 +25,9 @@ $comments = $this->getData()['comments_list'];
                         </a>
                     </div>
                     <a href="/news?id=<?=$comment->getNewsId()?>#comment_<?=$comment->getId()?>"><?=$user->getViewName()?></a>
+                    <?php if ($user->isOnline()):?>
+                        <span data-toggle="tooltip" data-placement="right" title="Online" class="online-pointer"></span>
+                    <?php endif; ?>
                 </h4>
                 <div class="news-date">
                     <a target="_blank" style="color: #909090;" href="/news?id=<?=$comment->getNewsId()?>#comment_<?=$comment->getId()?>">Добавлено <?=$comment->getDate()?></a>

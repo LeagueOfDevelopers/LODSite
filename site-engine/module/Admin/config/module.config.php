@@ -4,6 +4,7 @@ return array(
     'actions' => array(
         'index' => 'index',
         'news' => 'news',
+        'orders' => 'orders',
         'save_news' => 'saveNews',
         'delete_news' => 'deleteNews',
         'edit_news' => 'editNews',
@@ -166,6 +167,24 @@ return array(
                         array(
                             'range' => 'default',
                             'value' => 'users/content/new_users'
+                        )
+                    )
+                ),
+                'orders.content' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'orders/content/content'
+                        )
+                    )
+                ),
+                'orders.list' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'orders/content/orders_list'
                         )
                     )
                 )

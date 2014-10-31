@@ -2,7 +2,9 @@
 
 return array(
     'actions' => array(
-        'index' => 'index'
+        'index' => 'index',
+        'add_order' => 'addOrder',
+        'success'=> 'success'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -10,8 +12,13 @@ return array(
                 'keywords' => '<meta name="keywords" content="Лига разработчиков, Мисис, НИТУ МИСиС">',
                 'description' => '<meta name="description" content="Логово программистов">'
             ),
-            'script' => array(),
-            'css' => array(),
+            'script' => array(
+                'bootstrapValidator',
+                'orders'
+            ),
+            'css' => array(
+                'bootstrapValidator.min'
+            ),
             'module_views' => array(
                 'content' => array(
                     'authorized_mode' => false,
@@ -28,6 +35,15 @@ return array(
                         array(
                             'range' => 'default',
                             'value' => 'index/main/orders'
+                        )
+                    )
+                ),
+                'success.content' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/success/main'
                         )
                     )
                 )

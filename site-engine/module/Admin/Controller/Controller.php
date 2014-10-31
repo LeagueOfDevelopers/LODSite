@@ -7,6 +7,7 @@ use Admin\Model\DeleteNewsModel;
 use Admin\Model\EditNewsModel;
 use Admin\Model\IndexModel;
 use Admin\Model\NewsModel;
+use Admin\Model\OrdersModel;
 use Admin\Model\SaveNewsModel;
 use Admin\Model\SaveUserCategoryModel;
 use Admin\Model\SignInByUserModel;
@@ -102,5 +103,17 @@ class Controller extends AbstractController {
         $data = $model->main()->getData();
         Application::setContentType('json');
         echo json_encode($data);
+    }
+
+    public function ordersAction() {
+        $model = new OrdersModel();
+        $data = $model->main()->getData();
+        $data['menu_flag'] = 'orders';
+
+        $view = new View('Admin');
+        $view->setTitle('Заказы | League Of Developers');
+        $view->setContent('orders.content');
+        $view->setData($data);
+        $view->generate();
     }
 }

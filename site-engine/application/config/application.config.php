@@ -72,8 +72,12 @@ return array(
                     )
                 ),
                 'footer' => array(
-                    'authorized_mode' => false,
+                    'authorized_mode' => true,
                     'allocated_paths' => array(
+                        array(
+                            'range' => array(1, 10),
+                            'value' => 'common/footer/footer.auth'
+                        ),
                         array(
                             'range' => 'default',
                             'value' => 'common/footer/footer'

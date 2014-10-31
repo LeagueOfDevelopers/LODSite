@@ -18,6 +18,9 @@ $news = $this->getData()['news'];
                         <span>
                             Автор:
                             <a target="_blank" href="/profile?id=<?=$news_user->getId()?>"><?=$news_user->getViewName()?></a>
+                            <?php if ($news_user->isOnline()):?>
+                                <span data-toggle="tooltip" data-placement="right" title="Online" class="online-pointer"></span>
+                            <?php endif; ?>
                         </span>
                     </div>
                     <?php if ($news_item->getPhoto()): ?>
