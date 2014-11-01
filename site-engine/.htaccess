@@ -1,0 +1,13 @@
+AddDefaultCharset utf-8
+
+RewriteEngine On
+RewriteBase /
+
+# Fix Apache internal dummy connections from breaking [(site_url)] cache
+RewriteCond %{HTTP_USER_AGENT} ^.*internal\ dummy\ connection.*$ [NC]
+RewriteRule .* - [F,L]
+
+# For Friendly URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?r=$1 [L,QSA]
