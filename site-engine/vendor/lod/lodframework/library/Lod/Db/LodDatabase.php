@@ -25,13 +25,6 @@ class LodDatabase {
         return !1;
     }
 
-    /**
-     * @return \mysqli
-     */
-    public function getDriver() {
-        return $this->db->getConnection()->getDriver();
-    }
-
     public function real_escape_string($text) {
         return $this->db->getConnection()->getDriver()->real_escape_string($text);
     }

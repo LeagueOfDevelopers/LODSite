@@ -30,42 +30,6 @@ return array(
             'language.en' => array(
                 'version' => '1',
                 'file' => '/st/js/language/en_US.js'
-            ),
-            'user' => array(
-                'version' => '1',
-                'file' => '/st/js/user.js'
-            ),
-            'register' => array(
-                'version' => '1',
-                'file' => '/st/js/register/register.js'
-            ),
-            'edit' => array(
-                'version' => '1',
-                'file' => '/st/js/edit/edit.js'
-            ),
-            'ajaxupload' => array(
-                'version' => '1',
-                'file' => '/st/js/profile/ajaxupload.3.5.js'
-            ),
-            'profile' => array(
-                'version' => '1',
-                'file' => '/st/js/profile/profile.js'
-            ),
-            'news' => array(
-                'version' => '1',
-                'file' => '/st/js/news/news.js'
-            ),
-            'admin' => array(
-                'version' => '1',
-                'file' => '/st/js/admin/admin.js'
-            ),
-            'feedback' => array(
-                'version' => '1',
-                'file' => '/st/js/feedback/feedback.js'
-            ),
-            'orders' => array(
-                'version' => '1',
-                'file' => '/st/js/orders/orders.js'
             )
         ),
         'css' => array(
@@ -90,12 +54,8 @@ return array(
                 'file' => '/st/css/bootstrapValidator.min.css'
             ),
             'styles' => array(
-                'version' => '7',
+                'version' => '1',
                 'file' => '/st/css/styles.css'
-            ),
-            'styles.admin' => array(
-                'version' => '7',
-                'file' => '/st/css/styles.admin.css'
             )
         ),
         'img' => array(

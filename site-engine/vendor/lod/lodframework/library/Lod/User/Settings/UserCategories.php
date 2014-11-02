@@ -4,30 +4,29 @@ namespace Lod\User\Settings;
 
 class UserCategories {
 
-    /* Don't change the access level of users. */
-    public static $categories = array(
+    private static $categories = array(
         'default' => array(
             'color' => '#ccc',
             'value' => 'Не определено'
         ),
-        '1' => array(
-            'color' => '#428BCA',
-            'background' => 'rgba(42, 84, 172, 0.11)',
+        '0' => array(
+            'color' => '#ccc',
             'value' => 'Гость'
         ),
+        '1' => array(
+            'color' => '#777',
+            'value' => 'Пользователь'
+        ),
         '5' => array(
-            'color' => '#FFF',
-            'background' => 'rgba(29, 154, 37, 0.66)',
+            'color' => '#777',
             'value' => 'Разработчик'
         ),
         '8' => array(
-            'color' => '#FFF',
-            'background' => '#50B7B9',
+            'color' => '#777',
             'value' => 'Менеджер'
         ),
         '10' => array(
-            'color' => '#FFF',
-            'background' => '#e67e22',
+            'color' => '#d00',
             'value' => 'Администратор'
         )
     );
@@ -38,10 +37,6 @@ class UserCategories {
 
     public static function defineCategoryColor($access_level) {
         return self::defineCategory($access_level)['color'];
-    }
-
-    public static function defineCategoryBackground($access_level) {
-        return self::defineCategory($access_level)['background'];
     }
 
     private static function defineCategory($access_level) {

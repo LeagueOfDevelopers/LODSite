@@ -3,16 +3,7 @@
 return array(
     'modules' => array(
         '404' => 'Err404',
-        'index' => 'Index',
-        'user' => 'User',
-        'profile' => 'Profile',
-        'feedback' => 'Feedback',
-        'about' => 'About',
-        'news' => 'News',
-        'adminium' => 'Admin',
-        'forum' => 'Forum',
-        'portfolio' => 'Portfolio',
-        'orders' => 'Orders'
+        'index' => 'Index'
     ),
     'module_options' => array(
         'module_path' => '/module'
@@ -32,14 +23,12 @@ return array(
             'title' => 'Лига Разработчиков',
             'meta' => array(
                 'charset' => '<meta http-equiv="content-type" content="text/html; charset=utf-8">',
-                'ie' => '<meta http-equiv="X-UA-Compatible" content="IE=edge">',
-                'noindex' => '<meta name="robots" content="noindex, nofollow"/>'
+                'ie' => '<meta http-equiv="X-UA-Compatible" content="IE=edge">'
             ),
             'script' => array(
                 'jquery',
                 'bootstrap.min',
-                'library',
-                'user'
+                'library'
             ),
             'css' => array(
                 'bootstrap.min',
@@ -54,30 +43,14 @@ return array(
                     'authorized_mode' => true,
                     'allocated_paths' => array(
                         array(
-                            'range' => array(1, 4),
-                            'value' => 'common/head/head.auth'
-                        ),
-                        array(
-                            'range' => array(5, 7),
-                            'value' => 'common/head/head.auth.member'
-                        ),
-                        array(
-                            'range' => array(8, 10),
-                            'value' => 'common/head/head.auth.admin'
-                        ),
-                        array(
                             'range' => 'default',
                             'value' => 'common/head/head'
                         )
                     )
                 ),
                 'footer' => array(
-                    'authorized_mode' => true,
+                    'authorized_mode' => false,
                     'allocated_paths' => array(
-                        array(
-                            'range' => array(1, 10),
-                            'value' => 'common/footer/footer.auth'
-                        ),
                         array(
                             'range' => 'default',
                             'value' => 'common/footer/footer'

@@ -13,21 +13,23 @@ return array(
             'module_views' => array(
                 'content' => array(
                     'authorized_mode' => false,
-                    'allocated_paths' => array(
-                        array(
-                            'range' => 'default',
-                            'value' => 'index/404'
-                        )
-                    )
+                    'path' => 'index/404'
                 ),
-                'error' => array(
+                'add_author' => array(
                     'authorized_mode' => false,
-                    'allocated_paths' => array(
-                        array(
-                            'range' => 'default',
-                            'value' => 'index/error'
-                        )
-                    )
+                    'path' => 'popups/add_author'
+                ),
+                'add_edition' => array(
+                    'authorized_mode' => false,
+                    'path' => 'popups/add_edition'
+                ),
+                'copy_link' => array(
+                    'authorized_mode' => false,
+                    'path' => 'popups/copy_link'
+                ),
+                'preview' => array(
+                    'authorized_mode' => false,
+                    'path' => 'popups/preview'
                 )
             )
         ),

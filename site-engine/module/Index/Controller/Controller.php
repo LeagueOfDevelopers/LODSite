@@ -13,11 +13,10 @@ class Controller extends AbstractController {
 
     public function indexAction() {
         $model = new IndexModel();
-        $data = $model->main()->getData();
+        $model->main();
 
         $view = new View('Index');
         $view->setContent('content');
-        $view->setData($data);
         $view->generate();
     }
 }

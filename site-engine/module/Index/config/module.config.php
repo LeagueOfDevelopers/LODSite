@@ -22,17 +22,17 @@ return array(
                         )
                     )
                 ),
-                'navigation' => array(
-                    'authorized_mode' => true,
+                'right_block' => array(
+                    'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
-                            'value' => 'index/navigation/navigation'
+                            'value' => 'index/right_block/right_block'
                         )
                     )
                 ),
                 'news' => array(
-                    'authorized_mode' => true,
+                    'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
@@ -41,7 +41,7 @@ return array(
                     )
                 ),
                 'pagination' => array(
-                    'authorized_mode' => true,
+                    'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
@@ -49,12 +49,21 @@ return array(
                         )
                     )
                 ),
-                'right_block' => array(
-                    'authorized_mode' => true,
+                'previews' => array(
+                    'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
-                            'range' => array(1, 10),
-                            'value' => 'index/right_block/right_block'
+                            'range' => 'default',
+                            'value' => 'index/previews/previews'
+                        )
+                    )
+                ),
+                'navigation' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'index/navigation/navigation'
                         )
                     )
                 )

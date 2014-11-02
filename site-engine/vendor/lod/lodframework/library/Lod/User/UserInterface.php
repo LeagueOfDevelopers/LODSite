@@ -11,7 +11,7 @@ interface UserInterface {
     function allocateUserByEmail($email);
     function allocateUserByNickName($nickname);
     function getObject();
-    function setCheckAuthorization(CheckAuthorization& $class);
+    function setCheckAuthorization(CheckAuthorization $class);
     function isAuth();
 
     function getId();
@@ -39,19 +39,14 @@ interface UserInterface {
     function getLastLoggedDate();
     function getLastLoggedLater();
     function getViewCount();
-    function getPublicLoginKey();
-    function getSex();
-    function getViewSex();
-    function getRecentActivityTime();
-    function getRecentActivityEllapsed();
-    function getAbout();
-    function getPhotoLink();
 
     function isBan();
-    function isOnline();
+    function unBan();
+    function setBan();
+    function setResetPasswordKey();
 
+    function setAccessLevel($number);
     function setEmail($email);
-    function setAccessLevel($level);
     function setPasswordHash($hash);
     function setFirstName($first_name);
     function setLastName($second_name);
@@ -65,11 +60,4 @@ interface UserInterface {
     function setUniversityEnrollmentYear($year);
     function incrementViewCount();
     function updateLastLoggedTime();
-    function setSex($sex);
-    function updateRecentActivtyTime();
-    function setAbout($text);
-    function setPhoto($ref);
-    function setBan();
-    function unBan();
-    function setAdminConfirm();
 }

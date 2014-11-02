@@ -55,10 +55,12 @@ abstract class AbstractView {
     //подключение представления из модуля. Название передается как параметр.
     public function includeModuleView($view) {
         $view = isset($this->general_includes['module_views'][$view]) ? $this->general_includes['module_views'][$view] : !1;
-        /** @var \Lod\User\User $user */
-        $user = $this->getData()['user'];
-        $user_authorized = !empty($this->getData()['user']) ? $user->isAuth() : false;
-        $user_level = !empty($this->getData()['user']) ? $user->getAccessLevel() : 0;
+        /*
+        $user_authorized = $this->getData()['user'] ? $this->getData()['user']->isAuth() : false;
+        $user_level = $this->getData()['user'] ? $this->getData()['user']->getAccessLevel() : 0;
+        */
+        $user_authorized = false;
+        $user_level = 2;
         $mode = $view['authorized_mode'];
 
         if ($view) {
@@ -91,10 +93,12 @@ abstract class AbstractView {
     //подключение представления из общей настройки. Передается название в качестве параметра.
     public function includeView($view) {
         $view = isset($this->general_includes['views'][$view]) ? $this->general_includes['views'][$view] : !1;
-        /** @var \Lod\User\User $user */
-        $user = $this->getData()['user'];
-        $user_authorized = !empty($this->getData()['user']) ? $user->isAuth() : false;
-        $user_level = !empty($this->getData()['user']) ? $user->getAccessLevel() : 0;
+        /*
+        $user_authorized = $this->getData()['user'] ? $this->getData()['user']->isAuth() : false;
+        $user_level = $this->getData()['user'] ? $this->getData()['user']->getAccessLevel() : 0;
+        */
+        $user_authorized = false;
+        $user_level = 2;
         $mode = $view['authorized_mode'];
 
         if ($view) {
