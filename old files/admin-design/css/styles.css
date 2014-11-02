@@ -1,0 +1,167 @@
+body { padding: 50px 0 0 0; }
+nav { opacity: 1.0; }
+nav:hover { }
+
+.margin20 { margin: 0 0 20px 0; }
+
+.navbar-inverse {
+	background-image: none;
+	background-color: #22313F;
+	border-bottom: #F62459 solid 5px;
+}
+
+.navbar-inverse .navbar-text { color: #67809F; }
+
+.navbar-inverse .navbar-nav>li>a { color: #67809F; }
+
+.navbar-inverse .navbar-nav>.active>a { background-image: none; background-color: #F62459; box-shadow: none; }
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+	background-color: #F62459;
+	color: #EEEEEE;
+	text-shadow: #22313F 0 -1px 0;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+	background-color: #34495E;
+	color: #EEEEEE;
+	text-shadow: #22313F 0 -1px 0;
+}
+@media (max-width: 767px) {
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #EEEEEE;
+		background-color: #34495E;
+		text-shadow: #22313F 0 -1px 0;
+	}
+}
+
+.navbar-brand { padding: 10px 15px 15px 15px; }
+.navbar-brand img { height: 30px; }
+
+.dropdown-menu{ border: #e7e7e7 solid 1px; }
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-image: none;
+  background-color: #ECF0F1;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-image: none;
+  background-color: #ECF0F1;
+}
+
+.dropdown-menu-login { min-width: 230px; }
+
+.input-group small { }
+
+.help-block { color: #F62459; }
+
+.btn-default {
+	background-image: none;
+	background-color: #FCFCFC;
+	border: #ECECEC solid 1px;
+}
+.btn-default:hover {
+	background-image: none;
+	background-color: #FCFCFC;
+	border: #DADFE1 solid 1px;
+}
+.btn-primary {
+	background-image: none;
+	background-color: #5C97BF;
+	border: #5C97BF solid 1px;
+}
+.btn-primary:hover {
+	background-image: none;
+	background-color: #59ABE3;
+	border: #59ABE3 solid 1px;
+}
+
+.badge { font-weight: normal; text-shadow: none; }
+.media { border-bottom: #ECF0F1 solid 1px; }
+
+.alert-danger { background-image: none; }
+.panel-default>.panel-heading { background-image: none; background-color: #ECECEC; }
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  z-index: 2;
+  color: #ffffff;
+  background-image: none;
+  background-color: #5C97BF;
+  border-color: #5C97BF;
+}
+
+.thumbnail .caption {
+	padding: 10px 20px 10px 20px;
+}
+
+.news-content { margin: 0 0 100px 0; }
+
+.footer {
+	color: #BDC3C7;
+	border-top: 1px solid #ECF0F1;
+	padding: 20px 0 40px 0;
+	margin: 40px 0 0 0;
+}
+
+@media screen and (max-width: 767px) {
+	.row-offcanvas { position: relative; -webkit-transition: all .25s ease-out; -o-transition: all .25s ease-out; transition: all .25s ease-out; }
+	.row-offcanvas-right { right: 0; }
+	.row-offcanvas-left { left: 0; }
+	.row-offcanvas-right
+	.sidebar-offcanvas { right: -50%; }
+	.row-offcanvas-left
+	.sidebar-offcanvas { left: -50%; }
+	.row-offcanvas-right.active { right: 50%; }
+	.row-offcanvas-left.active { left: 50%; }
+	.sidebar-offcanvas { position: absolute; top: 0; width: 50%; }
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #EEEEEE;
+    border-right: 1px solid #DADFE1;
+  }
+}
+
+.nav-sidebar { margin-right: -21px; margin-bottom: 20px; margin-left: -20px; }
+.nav-sidebar > li > a { padding-right: 20px; padding-left: 20px; }
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus { color: #fff; background-color: #5C97BF; }
+
+.main { padding: 20px; }
+@media (min-width: 768px) {
+	.main { padding-right: 40px; padding-left: 40px; }
+}
+.main .page-header { margin-top: 0; }
+
+.placeholders { margin-bottom: 30px; text-align: center; }
+.placeholders h4 { margin-bottom: 0; }
+.placeholder { margin-bottom: 20px; }
+.placeholder img { display: inline-block; border-radius: 50%; }
