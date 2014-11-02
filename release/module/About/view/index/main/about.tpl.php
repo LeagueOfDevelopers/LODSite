@@ -5,7 +5,8 @@
             <div style="text-align: center; position: absolute; bottom: 40px; right: 42%; width: 150px; opacity: 0.4;">
                 <img src="/st/img/lod-logo-hr.png" width="100%">
             </div>
-            <h1 class="page-header" style="color: #428BCA;">О нас</h1>
+            <h2 style="color: #428BCA; text-align: center; font-size: 48px; margin-bottom: 37px;">О нас</h2>
+            <style type="text/css"> .lead { font-size: 20px; } </style>
             <p class="lead" style="text-align: justify;">
                 Мы — студенты НИТУ МИСиС, выбравшие IT в качестве сферы профессионального развития. В Лиге Разработчиков мы работаем над программными проектами в таких сферах как: веб, мобильные платформы, десктоп, серверные приложения, игры. Мы не ограничиваем себя и не стоим на месте, постоянно развиваемся и ищем новые сферы применения своих способностей.
             </p>

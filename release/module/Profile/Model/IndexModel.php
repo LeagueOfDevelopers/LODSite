@@ -55,7 +55,7 @@ class IndexModel extends AbstractModel {
             "SELECT * FROM `users`
             WHERE `confirmed` = '1' AND `admin_confirmed` = '1' AND `recent_activity_time` <> 0
             ORDER BY `recent_activity_time` DESC
-            LIMIT 0, 10"
+            LIMIT 0, 15"
         );
         $users = array();
         while ($row = $result->fetch_array(MYSQL_ASSOC)) {

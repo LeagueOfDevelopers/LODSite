@@ -6,7 +6,6 @@ use Lod\Core\Application;
 use Lod\Core\Model\AbstractModel;
 use Lod\News\Comments\CommentItem\CommentItem;
 use Lod\News\Comments\Comments;
-use Lod\News\News;
 use Lod\User\Authorization\CheckAuthorization;
 use Lod\User\User;
 

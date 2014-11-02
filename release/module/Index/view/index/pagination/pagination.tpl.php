@@ -11,7 +11,7 @@ $pagination = $this->getData()['pagination'];
 
     <?php foreach ($pagination['pagination'] as $entity): ?>
         <?php if ($entity['active']): ?>
-            <li class="active"><span><?=$entity['view_number']?> <span class="sr-only">(current)</span></span></li>
+            <li class="active"><span><?=$entity['view_number']?> <span data-toggle="tooltip" data-placement="top" title="Страница" class="sr-only">(current)</span></span></li>
         <?php endif; ?>
         <?php if (!$entity['active']): ?>
             <li><a href="/?page=<?=$entity['page']?>"><?=$entity['view_number']?></a></li>
