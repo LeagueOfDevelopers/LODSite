@@ -234,8 +234,26 @@ class User implements UserInterface {
         return $offset < 300 && $this->getPublicLoginKey();
     }
 
+    public function getFormattedAbout() {
+        $patterns = array(
+            '/\[((http|https)\:\/\/(www\.)?[^\r\n\t\f \[\]]*)\]/i',
+            '/\s((http|https)\:\/\/(www\.)?[^\r\n\t\f }{]*)\s/i',
+            '/\s\-\-\s/i'
+        );
+        $replacements = array(
+            " <div class=\"row\" style='margin: 10px 0'><div class=\"col-xs-6 col-md-6\" style='padding-left: 0;'><a style=\"max-width: 100%; margin-bottom: 0;\"><img src=\"$1\"></a></div></div> ",
+            " <a target=\"_blank\" href=\"$1\">$1</a> ",
+            " — "
+        );
+        $text = ' '.$this->getAbout().' ';
+        for ($i = 0; $i < count($patterns); $i++) {
+            $text = preg_replace($patterns[$i], $replacements[$i], $text);
+        }
+        return $text;
+    }
+
     public function getAbout() {
-        return !empty($this->table_row['about']) ? htmlspecialchars($this->table_row['about']) : "Информация отсутствует";
+        return !empty($this->table_row['about']) ? strip_tags($this->table_row['about']) : "Информация отсутствует";
     }
 
     public function getPhotoLink() {

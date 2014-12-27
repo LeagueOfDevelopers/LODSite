@@ -139,12 +139,7 @@ $(document).ready(function() {
                 },
                 about: {
                     message: 'Напишите о себе',
-                    validators: {
-                        regexp: {
-                            regexp: /^[a-zA-Zа-яА-ЯёЁ.,;\-_0-9 =]+$/i,
-                            message: 'Некорректное поле'
-                        }
-                    }
+                    validators: {}
                 }
             }
         });

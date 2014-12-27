@@ -44,7 +44,7 @@ $orders = $this->getData()['orders'];
                 <a target="_blank" href="<?=$order_item->getFileLink()?>">Файл</a>
                 <?php endif; ?>
                 </td>
-                <td><?=$order_item->getDescription()?></td>
+                <td style="white-space: pre-line;"><?=$order_item->getDescription()?></td>
                 <td><?=$order_item->getCreateDate()?></td>
             </tr>
         <?php endforeach; ?>

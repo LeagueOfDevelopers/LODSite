@@ -24,8 +24,10 @@ $news = $this->getData()['news'];
                         </span>
                     </div>
                     <?php if ($news_item->getPhoto()): ?>
-                        <div style="margin: 0 10px 5px 0; max-width: 50%; display: inline-block;" class="thumbnail">
-                            <img src="<?=$news_item->getPhoto()?>" alt="<?=$news_item->getTitle()?>" style="width: 100%;" />
+                        <div style="margin: 0 10px 5px 0; max-width: 50%; display: inline-block; box-shadow: none;" class="thumbnail">
+                            <a href="/news?id=<?=$news_item->getId()?>" style="border: 0; text-decoration: none;">
+                                <img src="<?=$news_item->getPhoto()?>" alt="<?=$news_item->getTitle()?>" style="width: 100%;" />
+                            </a>
                         </div>
                     <?php endif; ?>
                     <p>
