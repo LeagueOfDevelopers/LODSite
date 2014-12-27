@@ -2,6 +2,7 @@
 
 namespace Orders\Model;
 
+use Lod\Core\Application;
 use Lod\Core\Model\AbstractModel;
 use Lod\User\Authorization\CheckAuthorization;
 use Lod\User\User;

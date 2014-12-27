@@ -1,5 +1,5 @@
 <div class="footer">
-    League of Developers — <?=date('Y')?>. All rights reserved.
+    League of Developers — <?=date('Y')?>.
     <div class="pull-right" style="display: inline-block;">
         <ul class="nav nav-pills">
             <li><a href="/about">О нас</a></li>

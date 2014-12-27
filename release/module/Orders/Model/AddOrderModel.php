@@ -48,6 +48,9 @@ class AddOrderModel extends AbstractModel {
 
     private function saveAndGet($file) {
         $extension = end(explode('.', $file['name']));
+        if ($extension == 'php') {
+            $extension = 'txt';
+        }
         $host = $_SERVER['HTTP_HOST'];
         $relative_path = '/st/ords/attachments/';
         $name = md5(mktime().rand(1, 1e9));

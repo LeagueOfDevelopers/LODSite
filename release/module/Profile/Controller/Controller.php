@@ -25,6 +25,7 @@ class Controller extends AbstractController {
 
         $view = new View('Profile');
         $view->setTitle($user->getViewName().' | League Of Developers');
+        $view->setMetaDescription($user->getViewName().'. Информация о пользователе: '.$user->getAbout());
         $view->setContent('content');
         $view->setData($data);
         $view->generate();
