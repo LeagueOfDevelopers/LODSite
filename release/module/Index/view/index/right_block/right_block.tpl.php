@@ -38,7 +38,7 @@ $comments = $this->getData()['comments_list'];
                 </div>
                 <div class="news-date">
                     <span>
-                        К новости <a data-toggle="tooltip" data-placement="top" title="<?=htmlspecialchars($news_title)?>" href="/news?id=<?=$comment->getNewsId()?>"><?=htmlspecialchars(trim($news_title))?></a>
+                        К новости <a data-toggle="tooltip" data-placement="top" title="<?=$news_title?>" href="/news?id=<?=$comment->getNewsId()?>"><?=trim($news_title)?></a>
                     </span>
                 </div>
             </div>

@@ -108,13 +108,13 @@ class Registration implements RegistrationInterface {
         $user['password'] = md5(md5($user['password'].';'));
         $confirm_key = $this->generateKey();
         $this->db->query(
-            "INSERT INTO `users` (`email`,`password`,`first_name`,`second_name`,`nickname`,`register_time`,`confirm_key`) VALUES(?s, ?s, ?s, ?s, ?s, ?i, ?s)",
-            $user['email'], $user['password'], $user['first_name'], $user['second_name'], $user['nickname'], time(), $confirm_key
+            "INSERT INTO `users` (`email`,`password`,`first_name`,`second_name`,`nickname`,`register_time`,`confirm_key`, `status`) VALUES(?s, ?s, ?s, ?s, ?s, ?i, ?s, ?i)",
+            $user['email'], $user['password'], $user['first_name'], $user['second_name'], $user['nickname'], time(), $confirm_key, 1
         );
         $this->db->query("COMMIT");
 
         $user_row = $this->db->query("SELECT * FROM `users` WHERE `nickname` = ?s", $user['nickname'])->fetch_array(MYSQL_ASSOC);
-        $this->sendKeyOnEmail($user['email'], $user['nickname'], $user_row['id'], $confirm_key);
+        $this->sendKeyOnEmail($user['email'], $user_row['id'], $confirm_key);
 
         $user_object = new User($this->db, $user_row);
         $user_object->setSex($user['sex']);
@@ -127,16 +127,10 @@ class Registration implements RegistrationInterface {
         $user_object->setUniversityEnrollmentYear($user['enrollment_year']);
         $user_object->setAbout($user['about']);
 
-        $email_confirm_result = $this->db->query("SELECT * FROM `league_contacts` WHERE `contact_email` = ?s", $user['email']);
-        if ($email_confirm_result->num_rows) {
-            $user_object->setAdminConfirm();
-            $user_object->setAccessLevel(5);
-        }
-
         $this->result = true;
     }
 
-    private function sendKeyOnEmail($email, $nickname, $id, $key) {
+    private function sendKeyOnEmail($email, $id, $key) {
         $host = $_SERVER['HTTP_HOST'];
 
         $to = $email;
@@ -156,8 +150,6 @@ class Registration implements RegistrationInterface {
                             </a>
                         </div>
                         <div style="padding: 15px; background-color: #C9E6F4; border-radius: 4px; border: 1px solid #b9d6e4;margin: 15px;">
-                            Вы зарегистрировались как: {4}
-                            <br><br>
                             Для того, чтобы активировать аккаунт, перейдите по этой ссылке:<br>
                             <a href="http://{2}/user/confirm?id={0}&key={1}" title="Активировать аккаунт" style="color: #777;">http://{2}/user/confirm?id={0}&key={1}</a>
                         </div>
@@ -168,7 +160,7 @@ class Registration implements RegistrationInterface {
             </body>
             </html>
             ';
-        $message = str_replace(array('{0}', '{1}', '{2}', '{3}', '{4}'), array($id, $key, $host, date('Y'), $nickname), $message);
+        $message = str_replace(array('{0}', '{1}', '{2}', '{3}'), array($id, $key, $host, date('Y')), $message);
 
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";

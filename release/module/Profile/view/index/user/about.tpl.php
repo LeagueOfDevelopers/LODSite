@@ -11,5 +11,7 @@ $user = $this->getData()['user'];
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">О себе</div>
-    <div class="panel-body" style="white-space: pre-line;"><?=$profile_user->getFormattedAbout()?></div>
+    <div class="panel-body">
+        <?=$profile_user->getFormattedAbout()?>
+    </div>
 </div>

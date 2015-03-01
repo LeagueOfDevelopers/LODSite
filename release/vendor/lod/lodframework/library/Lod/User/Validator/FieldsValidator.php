@@ -17,7 +17,7 @@ class FieldsValidator {
         'name' => "/^[а-яА-ЯёЁ]+/",
         'skype' => "/^[0-9a-z_.-]{2,50}$/i",
         'faculty' => '/^[^<>]+$/i',
-        'text' => '/^.+$/i'
+        'text' => '/^[^<>]+$/i'
     );
 
     public function isEmailValid($email) {

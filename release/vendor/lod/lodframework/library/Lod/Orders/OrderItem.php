@@ -52,6 +52,10 @@ class OrderItem implements OrderItemInterface {
         return $this->row ? $this->row['o_type'] : -1;
     }
 
+    public function getStatus() {
+        return $this->row ? $this->row['status'] : -1;
+    }
+
     public function getFinishTime() {
         $date = $this->row['finish_time'];
         if (empty($date)) {
