@@ -6,7 +6,7 @@ $user = $this->getData()['user'];
 /**
  * @var $user \Lod\User\User
  */
-$action = $this->getData()['act'];
+//$action = $this->getData()['act'];
 ?>
 <div class="container-fluid">
     <div class="row">

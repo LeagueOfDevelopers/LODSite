@@ -1,10 +1,5 @@
-<?php
-    $cur_year = date('Y');
-    $since_year = 2014;
-    $view_year = $cur_year == $since_year ? $cur_year : $since_year.'-'.$cur_year;
-?>
 <div class="footer">
-    League of Developers — <?=$view_year?>.
+    League of Developers — <?=date('Y')?>. All rights reserved.
     <div class="pull-right" style="display: inline-block;">
         <ul class="nav nav-pills">
             <li><a href="/about">О нас</a></li>

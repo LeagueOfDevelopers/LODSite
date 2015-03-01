@@ -28,11 +28,10 @@ $category_background = \Lod\User\Settings\UserCategories::defineCategoryBackgrou
         <li><a style="cursor: default; background: rgba(220, 167, 167, 0.57); margin-right: 10px; margin-bottom: 10px;" class="alert-danger"><span class="glyphicon glyphicon-ban-circle"></span> Заблокирован</a></li>
     <?php endif; ?>
     <li><a style="cursor: default; color: <?=$category_color?>; background: <?=$category_background?>; margin-right: 10px; margin-bottom: 10px;"><span class="glyphicon glyphicon-globe"></span> <?=$category_name?></a></li>
+    <li><a style="color:white; background: <?=$category_background?>; margin-right: 10px; margin-bottom: 10px; background-color:grey;" href="/portfolio/person?id=<?=$profile_user->getId();?>"> Портфолио</a></li>
+     
     <?php if ($email_flag): ?>
         <li><a style="margin-bottom: 10px;" target="_blank" href="mailto:<?=$profile_user->getEmail()?>"><span class="glyphicon glyphicon-send"></span> Написать E-mail</a></li>
-    <?php endif; ?>
-    <?php if ($vk_flag): ?>
-        <li><a style="margin-bottom: 10px;" target="_blank" href="<?=$vk?>"><span class="glyphicon glyphicon-link"></span> Профиль в VK</a></li>
     <?php endif; ?>
     <?php if ($phone_flag): ?>
         <li><a style="margin-bottom: 10px;"><span><span class="glyphicon glyphicon-phone"></span> <?=$phone?></span></a></li>

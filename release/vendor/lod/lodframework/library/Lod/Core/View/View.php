@@ -2,8 +2,6 @@
 
 namespace Lod\Core\View;
 
-use Lod\Core\Application;
-
 class View extends AbstractView {
 
     function __construct($module_name) {
@@ -21,13 +19,5 @@ class View extends AbstractView {
 
     public function setTitle($title) {
         $this->general_includes['title'] = $title;
-    }
-
-    public function setMetaDescription($content) {
-        $description = $this->general_includes['meta']['description'];
-        if (!empty($description)) {
-            $description = preg_replace("/content=\"(.*)\"/i", "content=\"$content\"", $description);
-            $this->general_includes['meta']['description'] = $description;
-        }
     }
 }

@@ -14,6 +14,9 @@ $menu_flag = $this->getData()['menu_flag'];
     </ul>
     <ul class="nav nav-sidebar">
         <li<?=$menu_flag == 'news' ? ' class="active"' : ''?>>
+         <!-- Maxim-->
+        <li<?=$menu_flag == 'teams' ? ' class="active"' : ''?>><a href="/adminium/maketeam">Трекер</a></li>
+        <!-- Maxim-->
         <li<?=$menu_flag == 'orders' ? ' class="active"' : ''?>><a href="/adminium/orders">Заказы</a></li>
     </ul>
     <ul class="nav nav-sidebar">

@@ -6,7 +6,7 @@ use Lod\Core\Application;
 use Lod\Db\LodDatabase;
 use Lod\User\Authorization\CheckAuthorization;
 use Lod\User\Settings\UserCategories;
-
+use Lod\Project\Project;
 class User implements UserInterface {
 
     /**
@@ -37,7 +37,7 @@ class User implements UserInterface {
             $this->setTableRow($result->num_rows ? $result->fetch_array(MYSQL_ASSOC) : null);
         }
     }
-
+    
     public function allocateUserByEmail($email) {
         $result = $this->db->query("SELECT * FROM `users` WHERE `email` = ?s", $email);
         $this->setTableRow($result->num_rows ? $result->fetch_array(MYSQL_ASSOC) : null);
@@ -58,6 +58,7 @@ class User implements UserInterface {
             $this->updateRecentActivtyTime();
         }
     }
+    
 
     public function isAuth() {
         return $this->check_auth && $this->table_row ? $this->check_auth->getResult() : false;
@@ -251,7 +252,6 @@ class User implements UserInterface {
         }
         return $text;
     }
-
     public function getAbout() {
         return !empty($this->table_row['about']) ? strip_tags($this->table_row['about']) : "Информация отсутствует";
     }
@@ -263,7 +263,47 @@ class User implements UserInterface {
     public function getResetPasswordKey() {
         return !empty($this->table_row['password_reset_key']) ? $this->table_row['password_reset_key'] : null;
     }
+    //Maxim
+    public function getStatus(){
+        return !empty($this->table_row['status']) ? $this->table_row['status'] : -1;
+    }
 
+    public function getStatusOnProject($id_project, $id_user){
+            $st = $this->db->query("SELECT `status` FROM `usersofproject` WHERE `id_project` = ?i AND `id_user` = ?i",$id_project,$this->table_row['id']);
+            $status = $st->fetch_array(MYSQL_ASSOC)['status'];
+            echo $status;
+    }
+
+    public function getStatusText(){
+        $status = $this->table_row['status'];
+        if($status == -1){
+            echo "Не готов к проекту";
+        }
+        if($status == 0){
+            echo "Готов к проекту";
+        }
+    }
+
+    public function delFromProject($id_project){
+            $this->db->query("DELETE FROM `usersofproject` WHERE `id_user` = ?i AND `id_project` = ?i", $this->getId(),$id_project);
+            $this->db->query("COMMIT");
+    }
+
+    public function changeStatus() {
+        if($this->table_row['status'] == 1) {
+            $this->setStatus(-1,$this->getId());
+        } 
+
+        if($this->table_row['status'] == -1) {
+            $this->setStatus(1,$this->getId());
+        }
+    }
+
+    public function setStatus($status, $id){
+        $this->db->query("UPDATE `users` SET `status` = ?i WHERE `id` = ?i", $status, $id);
+        $this->db->query("COMMIT");
+    }
+    ////////////////////////////////////////////////////////////////
     public function isBan() {
         return intval($this->table_row['ban']) != 0;
     }

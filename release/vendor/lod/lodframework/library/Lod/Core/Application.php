@@ -28,8 +28,6 @@ class Application {
     function __construct() {}
 
     public function run() {
-        session_start();
-        self::disableRequestCache();
         $route = new Route();
         self::$router = $route;
 

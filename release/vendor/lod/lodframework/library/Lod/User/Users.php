@@ -15,8 +15,8 @@ class Users {
         $this->db = $db;
     }
 
-    public function getUsers($count = 10, $offset = 0, $sort = DESC) {
-        $sort_type = $sort == DESC ? 'DESC' : 'ASC';
+    public function getUsers($count = 10, $offset = 0, $sort = 'DESC') {
+        $sort_type = $sort == 'DESC' ? 'DESC' : 'ASC';
         $result = $this->db->query(
             "SELECT * FROM `users`
             WHERE `confirmed` = '1' AND `admin_confirmed` = '1'
@@ -32,8 +32,37 @@ class Users {
         return $users_list;
     }
 
-    public function getNewUsers($sort = DESC) {
-        $sort_type = $sort == DESC ? 'DESC' : 'ASC';
+    public function getUsersHaveProject($count = 10, $offset = 0, $sort = 'DESC') {
+        $sort_type = $sort == 'DESC' ? 'DESC' : 'ASC';
+        $result = $this->db->query(
+            "SELECT * FROM `users` 
+            WHERE `confirmed` = '1' AND `admin_confirmed` = '1' AND `have_projects` = '1'
+            ORDER BY `id` $sort_type
+            LIMIT ?i, ?i",
+            $offset, $count
+        );
+        $users_list = array();
+        while ($row = $result->fetch_array(MYSQL_ASSOC)) {
+            $user_item = new User($this->db, $row);
+            array_push($users_list, $user_item);
+        }
+        return $users_list;
+    }
+
+    public function getFreeUsers() {
+        $result = $this->db->query(
+    "SELECT * FROM `users` 
+    WHERE `status` = '1' and `confirmed` = '1' AND `admin_confirmed` = '1'
+    ORDER BY `id` DESC ");
+        $users_list = array();
+        while ($row = $result->fetch_array(MYSQL_ASSOC)) {
+            $user_item = new User($this->db, $row);
+            array_push($users_list, $user_item);
+        }
+        return $users_list;
+    }
+    public function getNewUsers($sort = 'DESC') {
+        $sort_type = $sort == 'DESC' ? 'DESC' : 'ASC';
         $result = $this->db->query(
             "SELECT * FROM `users`
             WHERE `confirmed` = '1' AND `admin_confirmed` = '0' AND `ban` = '0'
@@ -54,6 +83,39 @@ class Users {
 
     public function getPagination($cur_page, $per_page) {
         $count = $this->getCount();
+        $pages = intval($count / $per_page) + 1;
+        $start = $cur_page - 4 < 1 ? 1 : $cur_page - 4;
+        $finish = $start + 8 > $pages ? $pages : $start + 8;
+        $start = $finish - 8 < 1 ? $start : $finish - 8;
+        for ($pages_array = array(), $i = $start; $i <= $finish; ++$i) {
+            $pages_array[] = array(
+                'active' => $i == $cur_page,
+                'view_number' => $i,
+                'page' => $i
+            );
+        }
+        $left = array(
+            'disabled' => $cur_page == 1,
+            'view_symbol' => '«',
+            'value' => $cur_page - 1
+        );
+        $right = array(
+            'disabled' => $cur_page == $pages,
+            'view_symbol' => '»',
+            'value' => $cur_page + 1
+        );
+        return array(
+            'left' => $left,
+            'pagination' => $pages_array,
+            'right' => $right
+        );
+    }
+
+    public function getPaginationForHaveProjects($cur_page, $per_page) {
+        $count =  $this->db->query(
+            "SELECT * FROM `users`
+            WHERE `confirmed` = '1' AND `admin_confirmed` = '1' AND `have_projects` = '1'"
+        )->num_rows;
         $pages = intval($count / $per_page) + 1;
         $start = $cur_page - 4 < 1 ? 1 : $cur_page - 4;
         $finish = $start + 8 > $pages ? $pages : $start + 8;

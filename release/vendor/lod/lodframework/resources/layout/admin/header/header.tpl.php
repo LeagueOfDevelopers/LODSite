@@ -4,6 +4,7 @@
  */
 /** @var \Lod\User\User $user */
 $user = $this->getData()['user'];
+
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">

@@ -76,6 +76,9 @@ class ModifyAccount implements ModifyAccountInterface {
         if (!$validator->isEnrollmentYearValid($enrollment_year)) {
             $enrollment_year = '';
         }
+        if (!$validator->isTextValid($about)) {
+            $about = '';
+        }
 
         $user = new User($this->db);
         $user->allocateUserById($this->id);

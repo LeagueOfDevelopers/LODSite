@@ -19,10 +19,7 @@ $user = $this->getData()['user'];
             <div class="jumbotron">
                 <h1>Добро пожаловать!</h1>
                 <p>Вы находитесь на сайте Лиги Разработчиков! У Вас есть интересная идея, но Вы не представляете как ее реализовать? Мы вам поможем!</p>
-                <p>
-                    <a class="btn btn-primary btn-lg" role="button" href="/orders">Стол заказов</a>
-                    <a class="btn btn-primary btn-lg" role="button" href="/about" style="margin-left: 10px;">О нас</a>
-                </p>
+                <p><a class="btn btn-primary btn-lg" role="button" href="/orders">Стол заказов</a></p>
             </div>
             <?php endif; ?>
 
