@@ -21,12 +21,26 @@ $last_activity = $profile_user->getRecentActivityTime() ? 'Последняя а
         <div class="profile-img">
             <div class="profile-img-wrapper<?=($iflag?' profile-img-iprit':'')?>" id="profile-image" style="background-image: url(<?=$profile_image?>);"></div>
             <?php if ($is_my_profile): ?>
-            <div class="profile-img-change animate-ease-in-out" id="upload-button">
-                <span class="glyphicon glyphicon-pencil"></span>
-            </div>
-            <div class="profile-img-refresh animate-ease-in-out" style="display: none;" id="refresh-panel">
-                <span class="glyphicon glyphicon-refresh" style="top: 2px;"></span>
-            </div>
+                <div class="profile-img-change animate-ease-in-out" id="upload-button">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </div>
+                <div class="profile-img-refresh animate-ease-in-out" style="display: none;" id="refresh-panel">
+                    <span class="glyphicon glyphicon-refresh" style="top: 2px;"></span>
+                </div>
+
+                <div class="profile-img-plus animate-ease-in-out resize-full" onclick="Profile.resizeFull(this)" style="top: 30px;">
+                    <span class="glyphicon glyphicon-resize-full"></span>
+                </div>
+                <div class="profile-img-minus animate-ease-in-out resize-small" style="top: 30px; display: none;" onclick="Profile.resizeSmall(this)">
+                    <span class="glyphicon glyphicon-resize-small"></span>
+                </div>
+            <?php else: ?>
+                <div class="profile-img-plus animate-ease-in-out resize-full" onclick="Profile.resizeFull(this)">
+                    <span class="glyphicon glyphicon-resize-full"></span>
+                </div>
+                <div class="profile-img-minus animate-ease-in-out resize-small" style="display: none;" onclick="Profile.resizeSmall(this)">
+                    <span class="glyphicon glyphicon-resize-small"></span>
+                </div>
             <?php endif; ?>
         </div>
         <span><?=$profile_user->getViewName()?>&nbsp;</span>
