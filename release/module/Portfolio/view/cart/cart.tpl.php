@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td><b>Ссылка git</b></td>
-            <td><a href="<?=$project->getGitHub();?>"><?=$project->getGitHub();?></a></td>
+            <td><?=$project->getGitHub();?></td>
         </tr>
         </tbody>
     </table>
@@ -32,17 +32,13 @@
     <div class="panel panel-default">
     <div class="panel-heading">Описание</div>
     <div class="panel-body">
-        <?=$project->getDescriptionF();?>
+        <?=$project->getDescription();?>
     </div>
     </div>
     </div>
 
 </div>
         </div>
-    </div>
-    <div id="photo-overlay" style="opacity: 0; position: fixed; height: 100%; width: 100%; background: rgba(0, 0, 0, 0.77); z-index: 1000; top: 0; left: 0; display: none;"></div>
-    <div class="photo-container-wrapper" style="display: none;">
-        <div class="photo-container" style="max-width: 70%; top: -20px;"></div>
     </div>
 
     <?php

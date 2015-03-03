@@ -51,7 +51,6 @@ var Profile = {
         $('.photo-container > .profile-img > #profile-image').css({height: '250px', width: '250px'});
         $('.photo-container > .profile-img > #upload-button').remove();
         $('.photo-container > .profile-img > .resize-small').css({top: '0'});
-        $('.photo-container a').css({display: 'none'});
 
         container.animate({top: '0px'}, 100);
     },

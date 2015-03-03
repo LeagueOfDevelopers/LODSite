@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head lang="ru">
+    <head>
         <?php
         /** @var $this \Lod\Core\View\View */
         $this->includeHeaders();
