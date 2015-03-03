@@ -66,6 +66,10 @@ return array(
             'orders' => array(
                 'version' => '1',
                 'file' => '/st/js/orders/orders.js'
+            ),
+            'vk.api' => array(
+                'version' => '105',
+                'file' => '//vk.com/js/api/openapi.js'
             )
         ),
         'css' => array(
@@ -74,15 +78,15 @@ return array(
                 'file' => '/st/css/bootstrap.css'
             ),
             'bootstrap.min' => array(
-                'version' => '1',
+                'version' => '3',
                 'file' => '/st/css/bootstrap.min.css'
             ),
             'bootstrap-theme' => array(
-                'version' => '1',
+                'version' => '3',
                 'file' => '/st/css/bootstrap-theme.css'
             ),
             'bootstrap-theme.min' => array(
-                'version' => '1',
+                'version' => '3',
                 'file' => '/st/css/bootstrap-theme.min.css'
             ),
             'bootstrapValidator.min' => array(
@@ -90,7 +94,7 @@ return array(
                 'file' => '/st/css/bootstrapValidator.min.css'
             ),
             'styles' => array(
-                'version' => '8',
+                'version' => '12',
                 'file' => '/st/css/styles.css'
             ),
             'styles.admin' => array(

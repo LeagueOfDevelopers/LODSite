@@ -26,8 +26,8 @@ class Orders {
         return $inserted_id;
     }
 
-    public function getOrders($count = 20, $offset = 0, $sort = DESC) {
-        $sort_type = $sort == DESC ? 'DESC' : 'ASC';
+    public function getOrders($count = 20, $offset = 0, $sort = 'DESC') {
+        $sort_type = $sort == 'DESC' ? 'DESC' : 'ASC';
         $result = $this->db->query(
             "SELECT *
             FROM `orders`

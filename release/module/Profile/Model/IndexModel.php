@@ -43,7 +43,8 @@ class IndexModel extends AbstractModel {
         $this->setData(array(
             'user' => $user,
             'profile_user' => $profile_user,
-            'last_activity_users' => $last_activity_users
+            'last_activity_users' => $last_activity_users,
+            'id' => Application::$request_variables['get']['id']
         ));
 
         return $this;

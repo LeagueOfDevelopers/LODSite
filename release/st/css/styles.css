@@ -1,4 +1,9 @@
-body { padding: 70px 0 0 0; }
+/*!
+ * Bootstrap v3.3.0 (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+body { padding: 70px 0 0 0; background-color: #F6F6F6; }
 nav { opacity: 0.9; }
 nav:hover { opacity: 1.0; }
 
@@ -111,7 +116,7 @@ nav:hover { opacity: 1.0; }
 	padding: 10px 20px 10px 20px;
 }
 
-.news-content { margin: 0 0 100px 0; }
+.news-content { margin: 0 0 20px 0; }
 
 .footer {
 	color: #BDC3C7;
@@ -132,6 +137,12 @@ nav:hover { opacity: 1.0; }
 	.row-offcanvas-left.active { left: 50%; }
 	.sidebar-offcanvas { position: absolute; top: 0; width: 50%; }
 }
+
+/*!
+ * League Of Developers
+ * Copyright 2014
+ * Licensed under MIT
+ */
 
 .head-form-error {
     padding: 5px 13px 0;
@@ -226,30 +237,30 @@ nav:hover { opacity: 1.0; }
     border-radius: 5%;
 }
 
+.profile-img-minus,
+.profile-img-plus,
 .profile-img-change {
     position: absolute;
     color: #f1f1f1;
     font-size: 13px;
     top: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.3);
     border-radius: 3px;
     padding: 5px;
     cursor: pointer;
     overflow: hidden;
 }
 
+.profile-img-minus:hover,
+.profile-img-plus:hover,
 .profile-img-change:hover {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .profile-img {
     display: inline-block;
     position: relative;
-}
-
-.profile-img:hover .profile-img-change {
-    background-color: rgba(0,0,0,0.4);
 }
 
 .profile-img-iprit {
@@ -356,4 +367,29 @@ nav:hover { opacity: 1.0; }
 .preview-comment .col-md-6 {
     width: 100% !important;
     padding: 0;
+}
+
+.photo-container-wrapper {
+    position: fixed;
+    z-index: 1002;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    top: 100px;
+    transition: all .6s ease;
+}
+
+.photo-container {
+    position: relative;
+    top: -20px;
+    background: #FFF;
+    padding: 39px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all .6s ease;
+}
+
+.vk-widget {
+    white-space: nowrap;
+    padding: 20px 0;
 }

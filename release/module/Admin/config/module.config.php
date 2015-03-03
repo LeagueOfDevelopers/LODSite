@@ -12,7 +12,15 @@ return array(
         'save_user_category' => 'saveUserCategory',
         'signin_by_user' => 'signInByUser',
         'toggle_ban' => 'toggleBan',
-        'admin_confirm' => 'adminConfirm'
+        'admin_confirm' => 'adminConfirm',
+        'maketeam' => 'maketeam',
+        'approveOrder' => 'approveOrder',
+        'createProject' => 'createProject',
+        'deleteUserFromProject' => 'deleteUserFromProject',
+        'showCartProject' => 'showCartProject',
+        'editProject' => 'editProject',
+        'saveChangesProject' => 'saveChangesProject',
+        'createProjectByHand' => 'createProjectByHand'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -27,6 +35,52 @@ return array(
             ),
             'css' => array(),
             'module_views' => array(
+                //Maxim
+                'teams' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'team/make-team'
+                        )
+                    )
+                ),
+            'editProject' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'team/project-edit'
+                        )
+                    )
+                ),
+            'createProject' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'team/project-create'
+                        )
+                    )
+                ),
+            'showProject' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'team/cart-project'
+                        )
+                    )
+                ),
+                'make.project' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'team/make.project'
+                        )
+                    )
+                ),//////
                 'content' => array(
                     'authorized_mode' => false,
                     'allocated_paths' => array(

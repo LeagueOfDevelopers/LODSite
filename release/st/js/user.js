@@ -53,7 +53,7 @@ var User = {};
             data[select_year.name] = select_year.value;
             User.signUp(data);
         } catch (err) {
-            alert(err.toString);
+            alert(err.toString());
         }
     };
 

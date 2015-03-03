@@ -108,8 +108,8 @@ class Registration implements RegistrationInterface {
         $user['password'] = md5(md5($user['password'].';'));
         $confirm_key = $this->generateKey();
         $this->db->query(
-            "INSERT INTO `users` (`email`,`password`,`first_name`,`second_name`,`nickname`,`register_time`,`confirm_key`) VALUES(?s, ?s, ?s, ?s, ?s, ?i, ?s)",
-            $user['email'], $user['password'], $user['first_name'], $user['second_name'], $user['nickname'], time(), $confirm_key
+            "INSERT INTO `users` (`email`,`password`,`first_name`,`second_name`,`nickname`,`register_time`,`confirm_key`, `status`) VALUES(?s, ?s, ?s, ?s, ?s, ?i, ?s, ?i)",
+            $user['email'], $user['password'], $user['first_name'], $user['second_name'], $user['nickname'], time(), $confirm_key, 1
         );
         $this->db->query("COMMIT");
 

@@ -7,7 +7,8 @@ return array(
         'save_modified' => 'saveModified',
         'upload_image' => 'uploadProfileImage',
         'changePassword' => 'changePassword',
-        'save_new_password' => 'saveNewPassword'
+        'save_new_password' => 'saveNewPassword',
+        'changeStatus' => 'changeStatus'
     ),
     'module_includes' => array(
         'merge' => array(

@@ -1,7 +1,7 @@
 <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12" style="position: relative;">
 
-        <div class="jumbotron" style="padding-bottom: 80px; padding-top: 20px; background: #f7f7f7;">
+        <div class="jumbotron" style="padding-bottom: 80px; padding-top: 20px; background: #FFF; color: #666; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);">
             <div style="text-align: center; position: absolute; bottom: 40px; right: 42%; width: 150px; opacity: 0.4;">
                 <img src="/st/img/lod-logo-hr.png" width="100%">
             </div>

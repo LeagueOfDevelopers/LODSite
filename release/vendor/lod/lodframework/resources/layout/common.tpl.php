@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
     <head>
         <?php
         /** @var $this \Lod\Core\View\View */

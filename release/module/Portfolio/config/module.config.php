@@ -2,7 +2,9 @@
 
 return array(
     'actions' => array(
-        'index' => 'index'
+        'index' => 'index',
+        'person' =>'person',
+        'showCartProject' => 'showCartProject'
     ),
     'module_includes' => array(
         'merge' => array(
@@ -22,15 +24,41 @@ return array(
                         )
                     )
                 ),
-                'portfolio' => array(
+                'portfolio.container' => array(
                     'authorized_mode' => false,
                     'allocated_paths' => array(
                         array(
                             'range' => 'default',
-                            'value' => 'index/main/portfolio'
+                            'value' => 'index/main/container'
                         )
                     )
-                )
+                ),
+                'showcart' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'cart/cart'
+                        )
+                    )
+                ),
+                'person.main' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'person/main/content'
+                        )
+                    )
+                ),
+                'person.container' => array(
+                    'authorized_mode' => false,
+                    'allocated_paths' => array(
+                        array(
+                            'range' => 'default',
+                            'value' => 'person/main/container'                            )
+                        )
+                    )
             )
         ),
         'replace' => array(
