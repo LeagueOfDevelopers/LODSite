@@ -41,7 +41,7 @@ $userOnProject = $this->getData()['useronproject'];
 	<div class="panel panel-default">
     <div class="panel-heading">Описание</div>
     <div class="panel-body">
-        <?=$project->getDescription();?>
+        <?=$project->getDescriptionF();?>
     </div>
 	</div>
 	<div class="panel panel-default">

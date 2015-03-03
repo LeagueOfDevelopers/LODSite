@@ -44,7 +44,25 @@ class Project {
     }
 
     public function getDescription() {
-        return $this->row ? $this->row['description'] : 0;
+        return $this->row ? $this->row['description'] : "";
+    }
+
+    public function getDescriptionF() {
+        $patterns = array(
+            '/\[((http|https)\:\/\/(www\.)?[^\r\n\t\f \[\]]*)\]/i',
+            '/\s((http|https)\:\/\/(www\.)?[^\r\n\t\f }{]*)\s/i',
+            '/\s\-\-\s/i'
+        );
+        $replacements = array(
+            " <div class=\"row\" onclick='Images.resizeFull(this)' style='cursor: pointer; margin: 10px 0'><div class=\"col-xs-6 col-md-6\" style='padding-left: 0;'><a class=\"thumbnail img__cart\" style=\"max-width: 100%; margin-bottom: 0;\"><img src=\"$1\"></a></div></div> ",
+            " <a target=\"_blank\" href=\"$1\">$1</a> ",
+            " — "
+        );
+        $text = ' '.($this->row ? $this->row['description'] : "").' ';
+        for ($i = 0; $i < count($patterns); $i++) {
+            $text = preg_replace($patterns[$i], $replacements[$i], $text);
+        }
+        return $text;
     }
 
     public function getDeadLine() {
